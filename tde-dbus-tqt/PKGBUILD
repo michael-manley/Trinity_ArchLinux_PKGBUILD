@@ -1,0 +1,44 @@
+# Maintainer: Pawel 'l0ner' Soltys <pwslts@gmail.com>
+# Contributor: Calvin Morrison <mutantturkey@gmail.com>
+# Contributor: David C. Rankin <drankinatty at gmail dot com>
+
+pkgname=tde-dbus-tqt
+pkgver=14.0.3
+pkgrel=1
+arch=('i686' 'x86_64')
+url='http://scm.trinitydesktop.org/scm/git/dbus-tqt'
+license=('GPL')
+groups=('tde-core' 'tde-base')
+pkgdesc="Trinity TQt DBus wrapper - TDE upstream GIT"
+depends=('tde-arts' 'dbus-core')
+makedepends=('pkgconfig' 'cmake')
+provides=('dbus-tqt')
+options=('staticlibs' 'libtool' '!strip')
+source=('http://tde-mirror.yosemite.net/trinity/releases/R14.0.3/dependencies/dbus-tqt-R14.0.3.tar.bz2')
+md5sums=('fa7d673f668ceb89a3f89121b110c60c')
+install='trinity-dbus-tqt.install'
+
+build() {
+   msg "Setting PATH, CMAKE and Trinity Environment variables"
+   # Source the QT and TDE profile
+   [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
+   [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
+
+   cd $srcdir
+   msg "Creating out-of-source build directory: ${srcdir}/build"
+   mkdir -p build
+   cd build
+
+   msg "Starting cmake..."
+   cmake ${srcdir}/dependencies/dbus-tqt \
+      -DCMAKE_INSTALL_PREFIX=$TDEDIR
+
+   msg "Building - $pkgname..."
+   make $NUMJOBS
+}
+
+package() {
+   msg "Packaging - $pkgname-$pkgver"
+   cd ${srcdir}/build
+   make -j1 DESTDIR="${pkgdir}" install
+}
