@@ -30,7 +30,7 @@ md5sums=('436330a062fb3fd1e73d3b86982cad04'
 
 install='trinity-tqtinterface.install'
 
-_prefix=/opt/trinity
+_prefix=/usr
 # _prefix=/opt/trinity
 _tdedir=/opt/trinity
 
