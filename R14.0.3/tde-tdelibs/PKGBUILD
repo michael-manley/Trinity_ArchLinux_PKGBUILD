@@ -1,9 +1,10 @@
-# Maintainer: Pawel 'l0ner' Soltys <pwslts@gmail.com>
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: Pawel 'l0ner' Soltys <pwslts@gmail.com>
 # Contributor: Calvin Morrison <mutantturkey@gmail.com>
 # Contributor: David C. Rankin <drankinatty at gmail dot com>
 
 pkgname=tde-tdelibs
-pkgver=14.0.0
+pkgver=14.0.3
 pkgrel=1
 pkgdesc="Trinity Desktop core libraries and applications - TDE upstream GIT"
 arch=('i686' 'x86_64')
@@ -47,10 +48,6 @@ build() {
 
   cd "${srcdir}/${pkgname//tde-}"
 
-  ## patch /usr/bin/ld: cannot find -ldbus-1-tqt
-  #msg "/usr/bin/ld: cannot find -ldbus-1-tqt..."
-  #patch -Np1 -i "${srcdir}/tdelibs-tdecore-libdirs.diff"
-
   cd $srcdir
   msg "Creating out-of-source build directory: ${srcdir}/${_builddir}"
   mkdir -p build
@@ -84,8 +81,6 @@ build() {
     -DWITH_XCOMPOSITE=ON \
     -DWITH_ASPELL=ON \
     -DWITH_HSPELL=ON
-#      \
-#     -DCMAKE_BUILD_TYPE=Debug
 
   msg "Building - $pkgname..."
   make $NUMJOBS

@@ -1,4 +1,5 @@
-# Maintainer: Pawel 'l0ner' Soltys <pwslts@gmail.com>
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: Pawel 'l0ner' Soltys <pwslts@gmail.com>
 # Contributor: Calvin Morrison <mutantturkey@gmail.com>
 # Contributor: David C. Rankin <drankinatty at gmail dot com>
 
@@ -31,7 +32,6 @@ md5sums=('436330a062fb3fd1e73d3b86982cad04'
 install='trinity-tqtinterface.install'
 
 _prefix=/usr
-# _prefix=/opt/trinity
 _tdedir=/opt/trinity
 
 build() {
@@ -51,12 +51,6 @@ build() {
      -DQT_INCLUDE_DIR=${QTDIR}/include \
      -DMOC_EXECUTABLE=${QTDIR}/bin/moc \
      -DQT_VERSION=3
-#       \
-#      -DCMAKE_BUILD_TYPE=Debug
-
-#     -DQT_INCLUDE_DIR=${QTDIR}/include/tqt/Qt
-#     -DQT_LIBRARY_DIRS=/opt/qt/lib \
-#     -DCMAKE_SKIP_RPATH=ON || return 1
 
    make $NUMJOBS
 }
@@ -66,25 +60,10 @@ package() {
    cd ${srcdir}/build
    make -j1 DESTDIR="${pkgdir}" install
 
-   # include uic-tqt in package
-   #cd ${srcdir}
-   #mkdir -p ${pkgdir}/usr/bin
-   #cp -Rp ${srcdir}/${_svnmod}/qtinterface/uic-tqt ${pkgdir}/usr/bin
-
-   # it should contain sripts which would add
-   # their location into system variables
-   # this mean that this package should provide
-   # /etc/ld.so.conf.d/trinity.conf - lib locations for linker
-   # /etc/profile.d/trinity.sh - $PATH and other system variables for bash
-   # /etc/profile.d/trinity.csh - $PATH and other system variables for csh
-   # up until now it was done in the kdelibs PKGBUILD/package
-
    # Create and install ld.so.conf.d file
    install -d -m755 $pkgdir/etc/ld.so.conf.d/
    echo ${_tdedir}/lib > $pkgdir/etc/ld.so.conf.d/trinity.conf
    echo ${_tdedir}/lib/trinity >> $pkgdir/etc/ld.so.conf.d/trinity.conf
-#    echo ${_prefix}/lib > $pkgdir/etc/ld.so.conf.d/trinity.conf
-#    echo ${_prefix}/lib/trinity >> $pkgdir/etc/ld.so.conf.d/trinity.conf
 
    # Install profiles
    install -D -m755 $srcdir/trinity.profile.sh $pkgdir/etc/profile.d/trinity.sh

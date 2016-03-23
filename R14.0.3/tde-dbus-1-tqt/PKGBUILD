@@ -1,4 +1,5 @@
-# Maintainer: Pawel 'l0ner' Soltys <pwslts@gmail.com>
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: Pawel 'l0ner' Soltys <pwslts@gmail.com>
 # Contributor: Calvin Morrison <mutantturkey@gmail.com>
 # Contributor: David C. Rankin <drankinatty at gmail dot com>
 
@@ -31,10 +32,8 @@ build() {
    cd build
 
    msg "Starting cmake..."
-   cmake ${srcdir}/dependencies/dbus-1-tqt \
+   cmake ${srcdir}/dependencies/${pkgname#*-} \
       -DCMAKE_INSTALL_PREFIX=${TDEDIR}
-#        \
-#       -DCMAKE_VERBOSE_MAKEFILE=ON
 
    msg "Building - $pkgname..."
    make $NUMJOBS

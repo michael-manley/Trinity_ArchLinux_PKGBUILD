@@ -1,7 +1,8 @@
-# Maintainer: David C. Rankin <drankinatty at gmail dot com>
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: David C. Rankin <drankinatty at gmail dot com>
 
 pkgname='tde-tdebase'
-pkgver=14.0.0
+pkgver=14.0.3
 pkgrel=1
 pkgdesc="Trinity Desktop Enviroment base components - TDE upstream GIT"
 arch=('i686' 'x86_64')
@@ -19,14 +20,16 @@ depends=('libraw1394'
          'ttf-dejavu'
          'ttf-freefont'
          'xorg-server'
-         'xorg-xinit')
+         'xorg-xinit'
+         'htdig')
 makedepends=('autoconf'
 	     'cmake'
 	     'imake'
 	     'pkgconfig'
 	     'libxkbfile'
 	     'smbclient'
-	     'xorg-bdftopcf')
+	     'xorg-bdftopcf'
+             'xscreensaver')
 optdepends=('desktop-file-utils: Command line utilities for working with desktop entries'
             'pciutils: PCI bus configuration space access library and tools'
             'samba: file sharing over SMB'
@@ -69,21 +72,6 @@ build() {
   # Source the QT and TDE profile
   [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
   [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
-#   export CXXFLAGS="${CXXFLAGS} -L/opt/trinity/lib"
-
-#   export LD_LIBRARY_PATH="${LD_LIBRARY_PATH}:/opt/trinity/lib/"
-
-  ## fix /usr/bin/ld: cannot find -ldbus-tqt-1 error
-#   patch -Np1 -i "${srcdir}/tdebase-fix-link-dbus-tqt-1.diff"
-
-#   msg "Applying sed inclusion of TDE_LIBRARY_DIRS in kicker/kicker/CMakeLists.txt"
-# #   sed -i 's/TQT_LIBRARY_DIRS}/TQT_LIBRARY_DIRS} ${TDE_LIBRARY_DIRS}/' \
-# #   kicker/kicker/CMakeLists.txt || {
-#   sed -i 's/TQT_LIBRARY_DIRS}/TQT_LIBRARY_DIRS} ${DBUS_TQT_LIBRARY_DIRS}/' \
-#   kicker/kicker/CMakeLists.txt || {
-#     msg "sed for kicker/kicker/CMakeLists.txt - failed"
-#     exit 1
-#   }
 
   msg "Creating out-of-source build directory: ${srcdir}/build"
   mkdir -p ../build
@@ -109,7 +97,7 @@ build() {
     -DWITH_OPENGL=ON \
     -DWITH_XSCREENSAVER=ON \
     -DWITH_LIBART=ON \
-    -DWITH_LIBUSB=ON \
+#    -DWITH_LIBUSB=ON \
     -DWITH_LIBRAW1394=ON \
     -DWITH_PAM=ON \
     -DWITH_XDMCP=ON \
@@ -122,18 +110,8 @@ build() {
     -DWITH_UPOWER=ON \
     -DBUILD_ALL=ON \
     -DWITH_GCC_VISIBILITY=ON
-#      \
-#     -DCMAKE_BUILD_TYPE=Debug
+
   make $NUMJOBS
-
-#     -DCMAKE_CXX_FLAGS="-fpermissive" \
-#     -DCMAKE_LIBRARY_PATH="${CMAKE_LIBRARY_PATH} -L/opt/trinity/lib" \
-#     -DBUILD_TSAK=OFF \
-#     -DWITH_GCC_VISIBILITY=ON \
-#     -DCMAKE_CXX_FLAGS="-fpermissive" \
-#     -DWITH_HAL=ON \
-#     -DWITH_SHADOW=ON \
-
 }
 
 package() {
@@ -149,9 +127,6 @@ package() {
   # to the login screen.
 
   patch -N ${pkgdir}${TDEDIR}/share/config/tdm/Xsession < ${srcdir}/xsession.patch
-
-  #    # install tdm rc.d script. We need this to start tdm from rc.d
-  #    install -D -m755 ${srcdir}/tdm-trinity "${pkgdir}"/etc/rc.d/tdm
 
   ## we will need systemd service files created
   install -D -m644 "${srcdir}"/tdm.service \
@@ -188,5 +163,4 @@ package() {
     ln -sf ../../crystalsvg/$i/apps/ apps
     cd ..
   done
-
 }

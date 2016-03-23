@@ -1,4 +1,5 @@
-# Maintainer: Pawel 'l0ner' Soltys <pwslts@gmail.com>
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: Pawel 'l0ner' Soltys <pwslts@gmail.com>
 # Contributor: Calvin Morrison <MutantTurkey@gmail.com>
 # Contributor: David C. Rankin <drankinatty at gmail dot com>
 
@@ -17,7 +18,7 @@ makedepends=('libcups'
 	'libxi'
 	'postgresql'
 	'mariadb'
-	'unixodbc' )
+	'unixodbc')
 source=(http://tde-mirror.yosemite.net/trinity/releases/R14.0.3/dependencies/tqt3-R14.0.3.tar.bz2)
 md5sums=('bdf15859162cd7f53c470ab4242444ce')
 
@@ -85,8 +86,6 @@ build() {
     -thread \
     -dlopen-opengl \
     -no-ipv6
-#      \
-#     -debug
 
   # 64bit fixes pulled from extras/qt3 PKGBUILD
   # this is Arch-specific
@@ -99,15 +98,6 @@ build() {
 
   msg "--- \$CARCH is $CARCH ---"
   msg "Building - $pkgbase..."
-
-  # build sql plugins
-  # do we need this, I don't think so.
-  #cd "${srcdir}"/qt3
-  #make -C qmake
-  #cd "${srcdir}"/qt3/plugins/src/sqldrivers/mysql
-  #"${srcdir}"/qt3/bin/qmake -o Makefile "INCPATH+=/usr/include/mysql" "LIBS+=-L/usr/lib/mysql -lmysqlclient" mysql.pro
-  #cd "${srcdir}"/qt3/plugins/src/sqldrivers/psql
-  #"${srcdir}"/qt3/bin/qmake -o Makefile "INCPATH+=/usr/src/include /usr/include/postgresql/server" "LIBS+=-L/usr/lib -lpq" psql.pro
 
   cd "${QTDIR}"
 
@@ -148,21 +138,8 @@ package_tde-tqt3() {
   ## remove doc as it is now in a split package tde-tqt3-doc
   rm -r "${pkgdir}${_prefix}/doc"
 
-   # install qmake
-#    install -D -m755 qmake/qmake ${pkgdir}${_prefix}/bin/qmake
-
    # install link the apps provided by qt3 so we don't collide with
    # qt4 and can run them.
-#    Old tqt links from before TQt3 renaming June 2012
-#    ln -sf "${_prefix}/bin/assistant" "${pkgdir}${_prefix}/bin/tqassistant"
-#    ln -sf "${_prefix}/bin/designer" "${pkgdir}${_prefix}/bin/tqdesigner"
-#    ln -sf "${_prefix}/bin/linguist" "${pkgdir}${_prefix}/bin/tqlinguist"
-#    ln -sf "${_prefix}/bin/lrelease" "${pkgdir}${_prefix}/bin/tqlrelease"
-#    ln -sf "${_prefix}/bin/lupdate" "${pkgdir}${_prefix}/bin/tqlupdate"
-#    ln -sf "${_prefix}/bin/moc" "${pkgdir}${_prefix}/bin/tqmoc"
-#    ln -sf "${_prefix}/bin/qmake" "${pkgdir}${_prefix}/bin/tqqmake"
-#    ln -sf "${_prefix}/bin/qtconfig" "${pkgdir}${_prefix}/bin/tqtconfig"
-#    ln -sf "${_prefix}/bin/uic" "${pkgdir}${_prefix}/bin/tquic"
 
    # New links providing old package functionality (however 3rd party packages unlikely to build
    # unless updated to use new name references. Can drop this if it doesn't work.
@@ -191,21 +168,9 @@ package_tde-tqt3() {
 
    msg "Cleaning package..."
 
-   #rm -rf "${pkgdir}"$_prefix/{phrasebooks,templates,translations}
-
    # remove any link to the compiled libraries present in
    # $srcdir, which won't be present in non-building system.
    sed -i "s|-L${srcdir}/${pkgbase#*-}/lib ||g" "${pkgdir}${_prefix}"/lib/*.prl
-
-   #rm -f "${pkgdir}"${_prefix}/mkspecs/linux-g++$ARCH/linux-g++$ARCH
-
-   # Fix issues with GCC4
-#    sed -i 's/\(char\*\)/const char*/g' "${pkgdir}${_prefix}"/include/*.h
-   # Fix the mess we did fixing issues with GCC4
-#    sed -i 's/const u char/const uchar/g' "${pkgdir}${_prefix}"/include/*.h
-#    sed -i 's/u const char/const uchar/g' "${pkgdir}${_prefix}"/include/*.h
-#    sed -i 's/const const/const/g' "${pkgdir}${_prefix}"/include/*.h
-#    sed -i 's/uconst/ unsigned /g' "${pkgdir}${_prefix}"/include/*.h
 
    # missing include "qglobal.h" in include/qtimer.h fix
    sed -i 's/define TQTIMER_H/&\n#include "ntqglobal.h"/' "${pkgdir}${_prefix}/include/ntqtimer.h"
@@ -219,20 +184,8 @@ package_tde-tqt3-docs() {
 
   msg "Packaging - $pkgname-$pkgver"
 
-  # cd "${srcdir}/${QTDIR}"
-  # make DESTDIR="$pkgdir/" install
-
   ## install doc pages which are missed by make install
   ## convenient for a split package
   install -d -m755 "${pkgdir}${_prefix}/doc/"
   cp -r "${QTDIR}/doc" "${pkgdir}${_prefix}"
-
-  ## decide what to do about man pages
-
-#   install -d -m755 "${pkgdir}/opt/share/man"
-# #   install -m 644 man1/* /usr/local/share/man/man1
-# #   install -m 644 man3/* /usr/local/share/man/man3
-#   mv "${pkgdir}${_prefix}/doc/man/man1" "${pkgdir}/opt/share/man"
-#   mv "${pkgdir}${_prefix}/doc/man/man3" "${pkgdir}/opt/share/man"
-
 }

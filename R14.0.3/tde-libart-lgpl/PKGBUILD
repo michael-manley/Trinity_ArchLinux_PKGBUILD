@@ -1,4 +1,5 @@
-# Maintainer: David C. Rankin <drankinatty at gmail dot com>
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: David C. Rankin <drankinatty at gmail dot com>
 
 pkgname=tde-libart-lgpl
 pkgver=14.0.3
@@ -26,7 +27,6 @@ build() {
   [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
   [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
 
-#   ./configure --prefix=${TDEDIR}
   ./configure --prefix=/usr
   make
 }

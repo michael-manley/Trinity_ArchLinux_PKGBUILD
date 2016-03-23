@@ -1,4 +1,5 @@
-# Maintainer: Pawel 'l0ner' Soltys <pwslts@gmail.com>
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: Pawel 'l0ner' Soltys <pwslts@gmail.com>
 # Contributor: Calvin Morrison <mutantturkey@gmail.com>
 # Contributor: David C. Rankin <drankinatty at gmail dot com>
 
@@ -24,30 +25,17 @@ build() {
   [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
   [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
 
-#   msg "Patching..."
-#   cd  ${srcdir}
-#   patch -Np0 -i tqca-tls-fix-broken-commit.patch
-
   cd ${srcdir}/dependencies/${pkgname#*-}
 
   msg "Starting configure..."
   ./configure --qtdir=${QTDIR}
-#    \
-#     --debug
-
-
-#     --with-openssl-inc=/usr/include/openssl \
-#     --with-openssl-lib=/usr/lib
 
   msg "Building - $pkgname..."
   make  || return 1
-
 }
 
 package() {
   msg "Packaging - $pkgname"
   cd ${srcdir}/dependencies/${pkgname#*-}
-#   make -j1 DESTDIR="${pkgdir}" install
   make INSTALL_ROOT="${pkgdir}" install
-
 }
