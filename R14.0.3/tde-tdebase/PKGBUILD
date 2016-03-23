@@ -54,7 +54,8 @@ source=('http://tde-mirror.yosemite.net/trinity/releases/R14.0.3/tdebase-R14.0.3
         'agent-startup.sh'
         'tdm-trinity'
         'trinity.desktop'
-        'tdm.service')
+        'tdm.service'
+        'xsession.patch')
 
 md5sums=('3466e6ecf37b702e6aa3a0a92a85fa29'
          'ecabcf765ae52a36c7b15c494bb93f7f'
@@ -63,7 +64,8 @@ md5sums=('3466e6ecf37b702e6aa3a0a92a85fa29'
          'c963ef6e37c9051119972a58c67f05fb'
          'bb4c25e560fa719e8e8f49ef80bd1c99'
          '091f4e1045867bbbc15bf323731aae82'
-         'e0ddb96fc86bd081ce691744a68d2f9a')
+         'e0ddb96fc86bd081ce691744a68d2f9a'
+         'cef8b418c435f3d19ae5ebe7f1ebb3f1')
 
 build() {
   cd ${srcdir}/${pkgname#*-}
