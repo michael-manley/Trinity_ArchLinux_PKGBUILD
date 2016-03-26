@@ -3,7 +3,7 @@
 
 pkgname='tde-tdebase'
 pkgver=14.0.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Trinity Desktop Enviroment base components - TDE upstream GIT"
 arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/tdebase'
@@ -13,6 +13,7 @@ groups=('tde-core' 'tde-base' 'tde-extra' 'tde-multimedia' 'tde-complete')
 # depends=('hal'
 depends=('libraw1394'
          'libxtst'
+         'libxss'
          'lm_sensors'
          'tde-tdelibs'
          'tde-dbus-tqt'
