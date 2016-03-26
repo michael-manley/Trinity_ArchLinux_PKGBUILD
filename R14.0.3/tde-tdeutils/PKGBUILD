@@ -37,23 +37,12 @@ build() {
 
   ## cmake call
    msg "Starting cmake..."
-   cmake ${srcdir}/tdeutils \
+   cmake ../tdeutils \
    -DCMAKE_INSTALL_PREFIX=${TDEDIR} \
    -DWITH_DPMS=ON \
--DWITH_XSCREENSAVER=ON \
--DWITH_ASUS=ON \
--DWITH_POWERBOOK=ON \
--DWITH_POWERBOOK2=ON \
--DWITH_VAIO=ON \
--DWITH_THINKPAD=ON \
--DWITH_I8K=ON \
--DWITH_SNMP=ON \
--DWITH_SENSORS=ON \
--DWITH_XMMS=ON \
--DWITH_TDENEWSTUFF=ON
-   
+   -DBUILD_ALL=ON
+
  make VERBOSE=1
-  make $NUMJOBS
 }
 
 package() {

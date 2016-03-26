@@ -12,16 +12,16 @@
 +	    exec xmessage -center -buttons OK:0 -default OK "Sorry, $DESKTOP_SESSION is no valid session."
 +	    ;;
 +	  failsafe)
-+	    exec ck-launch-session xterm -geometry 80x24-0-0
++	    exec xterm -geometry 80x24-0-0
 +	    ;;
 +	  custom)
-+	    exec ck-launch-session $HOME/.xsession
++	    exec $HOME/.xsession
 +	    ;;
 +	  default)
-+	    exec ck-launch-session /opt/trinity/bin/starttde
++	    exec /opt/trinity/bin/starttde
 +	    ;;
 +	  *)
-+	    eval exec ck-launch-session "$session"
++	    eval exec "$session"
 +	    ;;
 +	esac
 +	exec xmessage -center -buttons OK:0 -default OK "Sorry, cannot execute $session. Check $DESKTOP_SESSION.desktop."
