@@ -13,6 +13,7 @@ groups=('tde-core' 'tde-base' 'tde-extra' 'tde-multimedia' 'tde-complete')
 # depends=('hal'
 depends=('libraw1394'
          'libxtst'
+         'libxss'
          'lm_sensors'
          'tde-tdelibs'
          'tde-dbus-tqt'
