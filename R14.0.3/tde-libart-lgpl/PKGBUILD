@@ -4,7 +4,7 @@
 pkgname=tde-libart-lgpl
 pkgver=14.0.3
 pkgrel=1
-pkgdesc="Trinity Desktop LGPL'd Component (git)"
+pkgdesc="Trinity Desktop LGPL'd Component"
 arch=('i686' 'x86_64')
 url="http://scm.trinitydesktop.org/scm/git/libart-lgpl"
 license=('LGPL')
@@ -17,7 +17,7 @@ conflicts=()
 replaces=()
 options=('staticlibs' 'libtool' '!strip')
 install=
-source=('http://tde-mirror.yosemite.net/trinity/releases/R14.0.3/dependencies/libart-lgpl-R14.0.3.tar.bz2')
+source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/libart-lgpl-R${pkgver}.tar.bz2")
 md5sums=('f83c280dde7fa9cbb3e3c853c66c6f4f')
 
 build() {

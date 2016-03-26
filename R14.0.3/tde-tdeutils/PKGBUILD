@@ -1,0 +1,64 @@
+# Maintainer: David C. Rankin <drankinatty at gmail dot com>
+
+pkgname=tde-tdeutils
+pkgver=14.0.3
+pkgrel=1
+pkgdesc="The TDE something - with Trinity upstream"
+arch=('i686' 'x86_64')
+url="http://scm.trinitydesktop.org/scm/git/${pkgname#*-}"
+license=('GPL')
+groups=('tde-base')
+depends=('tde-tdebase' 'xmms2')
+makedepends=('pkgconfig' 'autoconf' 'automake' 'libtool')
+optdepends=()
+provides=("${pkgname#*-}")
+conflicts=("trinity-${pkgname#*-}")
+replaces=("trinity-${pkgname#*-}")
+options=('staticlibs' 'libtool' '!emptydirs')
+# install='pkgname.install'
+source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/tdeutils-R${pkgver}.tar.bz2")
+md5sums=('3b1ce9bf57acf1414f160204b6427f06')
+
+build() {
+
+  cd ${srcdir}
+
+  ## CMAKE config
+  msg "Setting PATH, CMAKE and Trinity Environment variables"
+
+  # Source the QT and TDE profile
+  [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh       # or qt3.sh
+  [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh  # or tde.sh
+
+  # CMAKE - create out of source build directory
+   msg "Creating out-of-source build directory: ${srcdir}/${_builddir}"
+   mkdir -p build
+   cd build
+
+  ## cmake call
+   msg "Starting cmake..."
+   cmake ${srcdir}/tdeutils \
+   -DCMAKE_INSTALL_PREFIX=${TDEDIR} \
+   -DWITH_DPMS=ON \
+-DWITH_XSCREENSAVER=ON \
+-DWITH_ASUS=ON \
+-DWITH_POWERBOOK=ON \
+-DWITH_POWERBOOK2=ON \
+-DWITH_VAIO=ON \
+-DWITH_THINKPAD=ON \
+-DWITH_I8K=ON \
+-DWITH_SNMP=ON \
+-DWITH_SENSORS=ON \
+-DWITH_XMMS=ON \
+-DWITH_TDENEWSTUFF=ON
+   
+ make VERBOSE=1
+  make $NUMJOBS
+}
+
+package() {
+  msg "Packaging - $pkgname-$pkgver"
+  cd ${srcdir}/build  # cmake
+
+  make -j1 DESTDIR="$pkgdir" install
+}

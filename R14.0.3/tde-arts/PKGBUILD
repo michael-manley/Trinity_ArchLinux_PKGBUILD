@@ -6,7 +6,7 @@
 pkgname=tde-arts
 pkgver=14.0.3
 pkgrel=1
-pkgdesc="Trinity ARTS Sound System and libraries - from TDE upstream GIT"
+pkgdesc="Trinity ARTS Sound System and libraries"
 arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/arts'
 license=('GPL')
@@ -31,7 +31,7 @@ provides=('arts')
 conflicts=('kdemod3-arts' 'arts')
 replaces=('trinity-arts')
 options=('staticlibs' 'libtool' '!emptydirs')
-source=('http://tde-mirror.yosemite.net/trinity/releases/R14.0.3/dependencies/arts-R14.0.3.tar.bz2')
+source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/arts-R${pkgver}.tar.bz2")
 md5sums=('e8a240cd09a530637c18a43a26104047')
 install='tde-arts.install'
 

@@ -10,7 +10,7 @@ arch=('i686' 'x86_64')
 url="http://trinity.pearsoncomputing.net"
 license=('GPL2')
 groups=('tde-core' 'tde-base')
-pkgdesc="TQt interface for the TDE desktop - TDE upstream GIT"
+pkgdesc="TQt interface for the TDE desktop"
 depends=('tde-tqt3' 'glu')
 makedepends=('pkgconfig' 'cmake')
 provides=('tqtinterface')
@@ -19,7 +19,7 @@ replaces=('trinity-tqtinterface')
 # makeopts=('libtool' '!emptydirs' '!strip')
 options=('staticlibs' 'libtool' '!emptydirs' '!strip')
 
-source=('http://tde-mirror.yosemite.net/trinity/releases/R14.0.3/dependencies/tqtinterface-R14.0.3.tar.bz2'
+source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/tqtinterface-R${pkgver}.tar.bz2"
         'tqtpc-location.patch'
         'trinity.profile.sh'
         'trinity.profile.csh')

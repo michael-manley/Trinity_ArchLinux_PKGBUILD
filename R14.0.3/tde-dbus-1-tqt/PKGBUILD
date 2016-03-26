@@ -17,7 +17,7 @@ provides=('dbus-1-tqt')
 conflicts=('trinity-dbus-1-tqt')
 replaces=('trinity-dbus-1-tqt' 'trinity-dbus-1-qt3' 'dbus-1-qt3' 'tde-dbus-tqt-1')
 options=('staticlibs' 'libtool' '!strip')
-source=('http://tde-mirror.yosemite.net/trinity/releases/R14.0.3/dependencies/dbus-1-tqt-R14.0.3.tar.bz2')
+source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/dbus-1-tqt-R${pkgver}.tar.bz2")
 md5sums=('282113b13ff7d3a6e7018ad8fbf87720')
 install='trinity-dbus-1-tqt.install'
 

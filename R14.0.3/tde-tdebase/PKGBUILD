@@ -4,7 +4,7 @@
 pkgname='tde-tdebase'
 pkgver=14.0.3
 pkgrel=1
-pkgdesc="Trinity Desktop Enviroment base components - TDE upstream GIT"
+pkgdesc="Trinity Desktop Enviroment base components"
 arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/tdebase'
 license=('GPL')
@@ -47,7 +47,7 @@ replaces=('trinity-tdebase')
 options=('staticlibs' 'libtool' '!strip')
 install='trinity-tdebase.install'
 
-source=('http://tde-mirror.yosemite.net/trinity/releases/R14.0.3/tdebase-R14.0.3.tar.bz2'
+source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/tdebase-R${pkgver}.tar.bz2"
         'arch-kdeshutdown.png'
         'kdm-default-face.png'
         'agent-shutdown.sh'
@@ -65,7 +65,7 @@ md5sums=('3466e6ecf37b702e6aa3a0a92a85fa29'
          'bb4c25e560fa719e8e8f49ef80bd1c99'
          '091f4e1045867bbbc15bf323731aae82'
          'e0ddb96fc86bd081ce691744a68d2f9a'
-         'cef8b418c435f3d19ae5ebe7f1ebb3f1')
+         'a761787a4d2f917389ced194552addca')
 
 build() {
   cd ${srcdir}/${pkgname#*-}

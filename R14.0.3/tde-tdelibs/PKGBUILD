@@ -6,7 +6,7 @@
 pkgname=tde-tdelibs
 pkgver=14.0.3
 pkgrel=1
-pkgdesc="Trinity Desktop core libraries and applications - TDE upstream GIT"
+pkgdesc="Trinity Desktop core libraries and applications"
 arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/tdelibs'
 license=('GPL')
@@ -34,7 +34,7 @@ provides=('tdelibs')
 conflicts=('trinity-kdelibs' 'trinity-tdelibs' 'kdemod3-kdelibs' 'kdelibs3')
 replaces=('trinity-kdelibs' 'trinity-tdelibs')
 options=('staticlibs' 'libtool' '!makeflags' '!strip')
-source=('http://tde-mirror.yosemite.net/trinity/releases/R14.0.3/tdelibs-R14.0.3.tar.bz2')
+source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/tdelibs-R${pkgver}.tar.bz2")
 
 md5sums=('52ac28865adcc8b5a0176a2228004ac2')
 

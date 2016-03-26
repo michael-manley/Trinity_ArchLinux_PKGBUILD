@@ -10,12 +10,12 @@ arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/dbus-tqt'
 license=('GPL')
 groups=('tde-core' 'tde-base')
-pkgdesc="Trinity TQt DBus wrapper - TDE upstream GIT"
+pkgdesc="Trinity TQt DBus wrapper"
 depends=('tde-arts' 'dbus-core')
 makedepends=('pkgconfig' 'cmake')
 provides=('dbus-tqt')
 options=('staticlibs' 'libtool' '!strip')
-source=('http://tde-mirror.yosemite.net/trinity/releases/R14.0.3/dependencies/dbus-tqt-R14.0.3.tar.bz2')
+source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/dbus-tqt-R${pkgver}.tar.bz2")
 md5sums=('fa7d673f668ceb89a3f89121b110c60c')
 install='trinity-dbus-tqt.install'
 
