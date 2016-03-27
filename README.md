@@ -19,3 +19,51 @@ each package in the following order for a core environment.
 8. avahi-tqt (Recommended but required when supporting DNS discovery services)
 9. tdelibs
 10. tdebase
+
+For additional packages a recommended order is shown
+1. tdebindings
+2. tdeaccessibility
+3. tdeutils
+4. tdemultimedia
+5. tdenetwork
+6. tdeadmin
+7. tdeartwork
+8. tdegames
+9. tdetoys
+10. tdeedu
+11. tdegraphics
+12. tdepim
+13. tdesdk (Build tdesdk after installing tdepim. tdepim provides libkcal (bugzilla) hooks for tdesdk.)
+14. tdevelop (Build tdevelop after tdesdk. tdesdk provides cvs support for tdevelop.)
+15. tdeaddons
+
+# PKGFILE Completion
+1. tqt3 [DONE]
+2. tqtinterface [DONE]
+3. arts [DONE]
+4. dbus-tqt [DONE]
+5. dbus-1-tqt [DONE]
+6. tqca-tls [DONE]
+7. libart-lgpl [DONE]
+8. avahi-tqt [DONE]
+9. tdelibs [DONE]
+10. tdebase [DONE]
+11. tdebindings [DONE]
+12. tdeaccessibility [DONE]
+13. tdeutils [DONE]
+14. tdemultimedia [DONE]
+15. tdenetwork [DONE]
+16. tdeadmin [DONE]
+17. tdeartwork [DONE]
+18. tdegames
+19. tdetoys
+20. tdeedu
+21. tdegraphics
+22. tdepim [DONE]
+23. tdesdk
+24. tdevelop
+25. tdeaddons
+26. tde-libkdcraw [DONE]
+27. tde-libkexiv2 [DONE]
+28. tde-libcaldav [DONE]
+29. tde-libcarddav [DONE]
