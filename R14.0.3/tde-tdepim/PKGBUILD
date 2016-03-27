@@ -46,4 +46,6 @@ package() {
   msg "Packaging - $pkgname-$pkgver"
   cd ${srcdir}/build
   make -j1 DESTDIR="${pkgdir}" install
+  # Removing /opt/trinity/share/icons/default.tde to prevent a conflict
+  rm -rf ${pkgdir}/opt/trinity/share/icons/default.tde
 }
