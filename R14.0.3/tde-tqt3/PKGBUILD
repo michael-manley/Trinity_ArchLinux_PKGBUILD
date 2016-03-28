@@ -162,8 +162,8 @@ package_tde-tqt3() {
    echo "export QTDIR=${_prefix}" > "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
    echo "export TQTDIR=${_prefix}" >> "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
    echo "export QT_XFT=true" >> "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
-   echo "export PATH+=:${_prefix}/bin" >> "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
-   echo "export PKG_CONFIG_PATH+=:${_prefix}/pkgconfig" >> "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
+   echo "export PATH=$PATH:${_prefix}/bin" >> "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
+   echo "export PKG_CONFIG_PATH=$PATH:${_prefix}/pkgconfig" >> "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
    chmod 0755 "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
 
    msg "Cleaning package..."
