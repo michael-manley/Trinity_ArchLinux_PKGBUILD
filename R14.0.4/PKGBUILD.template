@@ -1,0 +1,59 @@
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: David C. Rankin <drankinatty at gmail dot com>
+
+_mod=tdepowersave
+_cat=applications/
+_kdemod="${_mod/tde/kde}"
+pkgname="tde-$_mod"
+pkgver=14.0.4
+pkgrel=1
+pkgdesc="Trinity Desktop Enviroment $_cat$_mod"
+arch=('i686' 'x86_64')
+url="http://scm.trinitydesktop.org/scm/git/$_mod"
+license=('GPL')
+provides=("$_mod")
+groups=('tde-complete')
+depends=(
+  'tde-tdelibs'
+)
+makedepends=(
+  'autoconf'
+  'cmake'
+  'pkgconfig'
+)
+optdepends=()
+confilicts=("trinity-$_kdemod" "kdemod3-$_kdemod")
+replaces=("trinity-$_mod")
+options=('staticlibs' 'libtool' '!strip')
+install=
+
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R$pkgver/$_cat$_mod-R$pkgver.tar.bz2")
+
+build() {
+  cd "${srcdir}/${_cat}${_mod}"
+
+  msg "Setting PATH, CMAKE and Trinity Environment variables"
+  # Source the QT and TDE profile
+  [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
+  [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
+
+  msg "Creating out-of-source build directory: ${srcdir}/build"
+  mkdir -p "$srcdir/build"
+  cd "$srcdir/build"
+
+  msg "Starting cmake..."
+
+  cmake ${srcdir}/${_cat}${_mod} \
+    -DCMAKE_INSTALL_PREFIX=${TDEDIR} \
+    -DSYSCONF_INSTALL_DIR=${TDEDIR}/etc \
+    -DBUILD_ALL=ON \
+    -DWITH_GCC_VISIBILITY=ON
+
+  make $NUMJOBS
+}
+
+package() {
+  msg "Packaging - $pkgname-$pkgver"
+  cd "$srcdir/build"
+  make -j1 DESTDIR="$pkgdir" install
+}

@@ -1,0 +1,37 @@
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: David C. Rankin <drankinatty at gmail dot com>
+
+pkgname=tde-libart-lgpl
+pkgver=14.0.4
+pkgrel=1
+pkgdesc="Trinity Desktop LGPL'd Component"
+arch=('i686' 'x86_64')
+url="http://scm.trinitydesktop.org/scm/git/libart-lgpl"
+license=('LGPL')
+groups=('tde-core' 'tde-base')
+depends=('tde-tqtinterface')
+makedepends=()
+optdepends=()
+provides=('libart-lgpl')
+conflicts=()
+replaces=()
+options=('staticlibs' 'libtool' '!strip')
+install=
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/libart-lgpl-R${pkgver}.tar.bz2")
+md5sums=('f83c280dde7fa9cbb3e3c853c66c6f4f')
+
+build() {
+  cd $srcdir/dependencies/${pkgname#*-}
+
+  msg "Setting PATH and Trinity Environment variables"
+  [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
+  [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
+
+  ./configure --prefix=/usr
+  make
+}
+
+package() {
+  cd $srcdir/dependencies/${pkgname#*-}
+  make -j1 DESTDIR=$pkgdir install
+}
