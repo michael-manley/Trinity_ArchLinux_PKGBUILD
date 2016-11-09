@@ -31,7 +31,7 @@ provides=('arts')
 conflicts=('kdemod3-arts' 'arts')
 replaces=('trinity-arts')
 options=('staticlibs' 'libtool' '!emptydirs')
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/arts-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/arts-R${pkgver}.tar.bz2")
 md5sums=('e8a240cd09a530637c18a43a26104047')
 install='tde-arts.install'
 

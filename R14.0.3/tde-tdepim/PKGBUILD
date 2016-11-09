@@ -14,7 +14,7 @@ makedepends=('pkgconfig' 'cmake' )
 provides=('tdepim')
 replaces=('trinity-tdepim')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/tdepim-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdepim-R${pkgver}.tar.bz2")
 md5sums=('51cfec23361788d21299f07e62d50288')
 
 build() {

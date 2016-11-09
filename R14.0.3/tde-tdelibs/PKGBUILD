@@ -34,7 +34,7 @@ provides=('tdelibs')
 conflicts=('trinity-kdelibs' 'trinity-tdelibs' 'kdemod3-kdelibs' 'kdelibs3')
 replaces=('trinity-kdelibs' 'trinity-tdelibs')
 options=('staticlibs' 'libtool' '!makeflags' '!strip')
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/tdelibs-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdelibs-R${pkgver}.tar.bz2")
 
 md5sums=('52ac28865adcc8b5a0176a2228004ac2')
 

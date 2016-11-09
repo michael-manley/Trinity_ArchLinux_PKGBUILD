@@ -17,7 +17,7 @@ conflicts=("trinity-${pkgname#*-}")
 replaces=("trinity-${pkgname#*-}")
 options=('staticlibs' 'libtool' '!emptydirs')
 # install='pkgname.install'
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/libraries/libkdcraw-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/libraries/libkdcraw-R${pkgver}.tar.bz2")
 md5sums=('c0a4f1d7687c98484297274d7bcd12d6')
 
 

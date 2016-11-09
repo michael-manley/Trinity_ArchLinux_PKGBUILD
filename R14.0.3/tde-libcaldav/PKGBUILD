@@ -17,7 +17,7 @@ provides=('libcaldav')
 replaces=('trinity-libcaldav')
 options=('staticlibs' 'libtool' '!strip')
 install=
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/libcaldav-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/libcaldav-R${pkgver}.tar.bz2")
 md5sums=('507a3780e4411b578633720b87edcfc0')
 
 build() {

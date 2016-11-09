@@ -17,7 +17,7 @@ conflicts=()
 replaces=()
 options=('staticlibs' 'libtool' '!strip')
 install=
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/libart-lgpl-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/libart-lgpl-R${pkgver}.tar.bz2")
 md5sums=('f83c280dde7fa9cbb3e3c853c66c6f4f')
 
 build() {

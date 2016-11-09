@@ -19,7 +19,7 @@ makedepends=('libcups'
 	'postgresql'
 	'mariadb'
 	'unixodbc')
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/tqt3-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/tqt3-R${pkgver}.tar.bz2")
 md5sums=('bdf15859162cd7f53c470ab4242444ce')
 
 _prefix="/opt/trinity/tqt3"

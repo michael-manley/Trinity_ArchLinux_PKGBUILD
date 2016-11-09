@@ -14,7 +14,7 @@ pkgdesc="Trinity Desktop bindings"
 depends=('tde-tdebase')
 makedepends=('pkgconfig' 'cmake' 'python2')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/tdebindings-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdebindings-R${pkgver}.tar.bz2")
 md5sums=('04fb351b47f6eaea4f45a6b39f4cd2e4')
 # install=''
 

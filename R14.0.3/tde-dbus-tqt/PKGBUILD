@@ -15,7 +15,7 @@ depends=('tde-arts' 'dbus-core')
 makedepends=('pkgconfig' 'cmake')
 provides=('dbus-tqt')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/dbus-tqt-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/dbus-tqt-R${pkgver}.tar.bz2")
 md5sums=('fa7d673f668ceb89a3f89121b110c60c')
 install='trinity-dbus-tqt.install'
 

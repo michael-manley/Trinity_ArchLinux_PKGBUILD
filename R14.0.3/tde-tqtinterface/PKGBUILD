@@ -19,7 +19,7 @@ replaces=('trinity-tqtinterface')
 # makeopts=('libtool' '!emptydirs' '!strip')
 options=('staticlibs' 'libtool' '!emptydirs' '!strip')
 
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/tqtinterface-R${pkgver}.tar.bz2"
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/tqtinterface-R${pkgver}.tar.bz2"
         'tqtpc-location.patch'
         'trinity.profile.sh'
         'trinity.profile.csh')

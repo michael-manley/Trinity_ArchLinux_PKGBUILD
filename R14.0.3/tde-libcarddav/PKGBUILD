@@ -13,7 +13,7 @@ license=('GPL')
 provides=('libcarddav')
 # conflicts=()
 replaces=('trinity-libcarddav')
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/libcarddav-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/libcarddav-R${pkgver}.tar.bz2")
 md5sums=('7bc9c9abdb98a25a85e212b6c864c485')
 
 _prefix=/usr

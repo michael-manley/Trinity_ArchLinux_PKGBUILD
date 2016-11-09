@@ -17,7 +17,7 @@ provides=('tqca-tls')
 conflicts=('trinity-tqca-tls')
 replaces=('trinity-tqca-tls')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/tqca-tls-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/tqca-tls-R${pkgver}.tar.bz2")
 md5sums=('1c10303447b6a11b6a114da9dfc9d872')
 
 build() {

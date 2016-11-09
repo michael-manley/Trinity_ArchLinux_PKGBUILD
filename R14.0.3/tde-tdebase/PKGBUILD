@@ -48,7 +48,7 @@ replaces=('trinity-tdebase')
 options=('staticlibs' 'libtool' '!strip')
 install='trinity-tdebase.install'
 
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/tdebase-R${pkgver}.tar.bz2"
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdebase-R${pkgver}.tar.bz2"
         'arch-kdeshutdown.png'
         'kdm-default-face.png'
         'agent-shutdown.sh'

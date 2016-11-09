@@ -15,7 +15,7 @@ makedepends=('pkgconfig')
 provides=('avahi-tqt')
 replaces=('trinity-avahi-tqt')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/dependencies/avahi-tqt-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/avahi-tqt-R${pkgver}.tar.bz2")
 md5sums=('bc6eda9e05375144f7cd42f4a794a010')
 
 build() {

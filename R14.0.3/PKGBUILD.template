@@ -27,7 +27,7 @@ replaces=("trinity-$_mod")
 options=('staticlibs' 'libtool' '!strip')
 install=
 
-source=("http://tde-mirror.yosemite.net/trinity/releases/R$pkgver/$_cat$_mod-R$pkgver.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R$pkgver/$_cat$_mod-R$pkgver.tar.bz2")
 
 build() {
   cd "${srcdir}/${_cat}${_mod}"

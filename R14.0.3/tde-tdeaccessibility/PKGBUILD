@@ -16,7 +16,7 @@ conflicts=("trinity-${pkgname#*-}")
 replaces=("trinity-${pkgname#*-}")
 options=('staticlibs' 'libtool' '!emptydirs')
 # install='pkgname.install'
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/tdeaccessibility-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdeaccessibility-R${pkgver}.tar.bz2")
 md5sums=('442103af1028c5e562ce95a0f9f3a86a')
 
 build() {

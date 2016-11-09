@@ -15,7 +15,7 @@ provides=('tdemultimedia')
 conflicts=('trinity-tdemultimedia' 'trinity-kdemultimedia')
 replaces=('trinity-tdemultimedia')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://tde-mirror.yosemite.net/trinity/releases/R${pkgver}/tdemultimedia-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdemultimedia-R${pkgver}.tar.bz2")
 md5sums=('0f5b04468a44728b29761e1ecbc7ccad')
 # install=''
 
