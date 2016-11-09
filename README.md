@@ -21,6 +21,7 @@ each package in the following order for a core environment.
 10. tdebase
 
 For additional packages a recommended order is shown
+
 1. tdebindings
 2. tdeaccessibility
 3. tdeutils
