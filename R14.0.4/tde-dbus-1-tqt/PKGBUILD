@@ -18,13 +18,13 @@ conflicts=('trinity-dbus-1-tqt')
 replaces=('trinity-dbus-1-tqt' 'trinity-dbus-1-qt3' 'dbus-1-qt3' 'tde-dbus-tqt-1')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/dbus-1-tqt-R${pkgver}.tar.bz2")
-md5sums=('282113b13ff7d3a6e7018ad8fbf87720')
+md5sums=('202b9752cf7bdfd4542ae36e95248233')
 install='trinity-dbus-1-tqt.install'
 
 build() {
    msg "Setting PATH, CMAKE and Trinity Environment variables"
-   [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
-   [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
+   [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
+   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
    cd $srcdir
    msg "Creating out-of-source build directory: ${srcdir}/${_builddir}"

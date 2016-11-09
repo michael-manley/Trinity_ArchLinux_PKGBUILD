@@ -21,8 +21,8 @@ md5sums=('04fb351b47f6eaea4f45a6b39f4cd2e4')
 build() {
   msg "Setting PATH, CMAKE and Trinity Environment variables"
   # Source the QT and TDE profile
-  [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
-  [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
+  [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
+  [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
   ## Generate config files and update with autoreconf
   cd ${srcdir}/${pkgname#*-}

@@ -16,12 +16,12 @@ provides=('avahi-tqt')
 replaces=('trinity-avahi-tqt')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/avahi-tqt-R${pkgver}.tar.bz2")
-md5sums=('bc6eda9e05375144f7cd42f4a794a010')
+md5sums=('04589946b4f5c1dc7804cae1624afd32')
 
 build() {
   msg "Setting PATH and Trinity Environment variables"
-  [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
-  [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
+  [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
+  [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
   cd ${srcdir}
 

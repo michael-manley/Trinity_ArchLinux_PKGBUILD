@@ -24,7 +24,7 @@ source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/depend
         'trinity.profile.sh'
         'trinity.profile.csh')
 
-md5sums=('436330a062fb3fd1e73d3b86982cad04'
+md5sums=('51b62729dbe147f18267d5f54b01896a'
          'c15745c944d98cb7c4cb553f0ca421d4'
          '72c6c4fb492c1f4b4741fad1dd70d62f'
          '915e14c6264a6b9c46a6a20b16cdcd06')
@@ -37,7 +37,7 @@ _tdedir=/opt/trinity
 build() {
    msg "Setting PATH, CMAKE and Trinity Environment variables"
    # Source the QT and KDE profile
-   [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
+   [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
 
    cd $srcdir
    msg "Creating out-of-source build directory: ${srcdir}/build"
@@ -66,7 +66,7 @@ package() {
    echo ${_tdedir}/lib/trinity >> $pkgdir/etc/ld.so.conf.d/trinity.conf
 
    # Install profiles
-   install -D -m755 $srcdir/trinity.profile.sh $pkgdir/etc/profile.d/trinity.sh
-   install -D -m755 $srcdir/trinity.profile.csh $pkgdir/etc/profile.d/trinity.csh
+   install -D -m755 $srcdir/trinity.profile.sh $pkgdir/usr/share/trinity/srcldr/trinity.sh
+   install -D -m755 $srcdir/trinity.profile.csh $pkgdir/usr/share/trinity/srcldr/trinity.csh
 
 }

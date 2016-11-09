@@ -18,12 +18,12 @@ conflicts=('trinity-tqca-tls')
 replaces=('trinity-tqca-tls')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/tqca-tls-R${pkgver}.tar.bz2")
-md5sums=('1c10303447b6a11b6a114da9dfc9d872')
+md5sums=('f2b3a28ab6e4bc2ebc0fa98c9997086b')
 
 build() {
   msg "Setting PATH and Trinity Environment variables"
-  [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
-  [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
+  [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
+  [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
   cd ${srcdir}/dependencies/${pkgname#*-}
 

@@ -27,8 +27,8 @@ build() {
   msg "Setting PATH, CMAKE and Trinity Environment variables"
 
   # Source the QT and TDE profile
-  [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh       # or qt3.sh
-  [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh  # or tde.sh
+  [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh       # or qt3.sh
+  [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh  # or tde.sh
 
   # CMAKE - create out of source build directory
    msg "Creating out-of-source build directory: ${srcdir}/${_builddir}"

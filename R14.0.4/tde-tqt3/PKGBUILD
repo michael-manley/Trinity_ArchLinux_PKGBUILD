@@ -18,9 +18,12 @@ makedepends=('libcups'
 	'libxi'
 	'postgresql'
 	'mariadb'
-	'unixodbc')
+	'unixodbc'
+	'libmng'
+	'xorg-xrandr'
+	'libxft')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/tqt3-R${pkgver}.tar.bz2")
-md5sums=('bdf15859162cd7f53c470ab4242444ce')
+md5sums=('f2d8cf563c0ef1323b895df8f2a51497')
 
 _prefix="/opt/trinity/tqt3"
 
@@ -66,6 +69,7 @@ build() {
     -I/usr/include/mysql \
     -I/usr/include/postgresql/server \
     -I/usr/include/libiodbc \
+    -I/usr/include/freetype2 \
     -lpq \
     -lmysqlclient \
     -L/usr/lib/mysql \
@@ -159,12 +163,13 @@ package_tde-tqt3() {
 
    # Build and install qt.profile
    install -d -m755 "${pkgdir}/etc/profile.d/"
-   echo "export QTDIR=${_prefix}" > "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
-   echo "export TQTDIR=${_prefix}" >> "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
-   echo "export QT_XFT=true" >> "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
-   echo "export PATH=$PATH:${_prefix}/bin" >> "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
-   echo "export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:${_prefix}/pkgconfig" >> "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
-   chmod 0755 "${pkgdir}/etc/profile.d/${pkgbase#*-}.sh"
+   mkdir -p "${pkgdir}/usr/share/trinity/srcldr"
+   echo "export QTDIR=${_prefix}" > "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
+   echo "export TQTDIR=${_prefix}" >> "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
+   echo "export QT_XFT=true" >> "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
+   echo "export PATH=$PATH:${_prefix}/bin" >> "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
+   echo "export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:${_prefix}/pkgconfig" >> "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
+   chmod 0755 "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
 
    msg "Cleaning package..."
 

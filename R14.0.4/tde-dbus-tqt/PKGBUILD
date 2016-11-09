@@ -11,19 +11,19 @@ url='http://scm.trinitydesktop.org/scm/git/dbus-tqt'
 license=('GPL')
 groups=('tde-core' 'tde-base')
 pkgdesc="Trinity TQt DBus wrapper"
-depends=('tde-arts' 'dbus-core')
+depends=('tde-arts' 'dbus')
 makedepends=('pkgconfig' 'cmake')
 provides=('dbus-tqt')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/dbus-tqt-R${pkgver}.tar.bz2")
-md5sums=('fa7d673f668ceb89a3f89121b110c60c')
+md5sums=('7508ac69693b77cd87725a0500d1333f')
 install='trinity-dbus-tqt.install'
 
 build() {
    msg "Setting PATH, CMAKE and Trinity Environment variables"
    # Source the QT and TDE profile
-   [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
-   [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
+   [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
+   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
    cd $srcdir
    msg "Creating out-of-source build directory: ${srcdir}/build"

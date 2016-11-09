@@ -58,9 +58,9 @@ source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdebas
         'tdm.service'
         'xsession.patch')
 
-md5sums=('3466e6ecf37b702e6aa3a0a92a85fa29'
-         'ecabcf765ae52a36c7b15c494bb93f7f'
-         'e6afdd7ca60c4c59b851135785347e75'
+md5sums=('dae53b392323cd001f007789d38c1d8f'
+         '2dac928c6177b9fa0f4e751d7dddc62e'
+         '81eb97f16b66a2152e592358727a30c7'
          '18e8d01124b19f7df2937c06e177bf7f'
          'c963ef6e37c9051119972a58c67f05fb'
          'bb4c25e560fa719e8e8f49ef80bd1c99'
@@ -73,8 +73,8 @@ build() {
 
   msg "Setting PATH, CMAKE and Trinity Environment variables"
   # Source the QT and TDE profile
-  [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
-  [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
+  [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
+  [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
   msg "Creating out-of-source build directory: ${srcdir}/build"
   mkdir -p ../build

@@ -28,7 +28,8 @@ depends=('aspell'
 	'xorg-xmessage'
 	'xorg-xprop'
 	'xorg-xset'
-	'xorg-xsetroot')
+	'xorg-xsetroot'
+	'tde-dbus-1-tqt')
 makedepends=('pkgconfig' 'cmake')
 provides=('tdelibs')
 conflicts=('trinity-kdelibs' 'trinity-tdelibs' 'kdemod3-kdelibs' 'kdelibs3')
@@ -36,15 +37,15 @@ replaces=('trinity-kdelibs' 'trinity-tdelibs')
 options=('staticlibs' 'libtool' '!makeflags' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdelibs-R${pkgver}.tar.bz2")
 
-md5sums=('52ac28865adcc8b5a0176a2228004ac2')
+md5sums=('7d55a106566f2772c5627154b1cc8765')
 
 install='trinity-tdelibs.install'
 
 build() {
   msg "Setting PATH, CMAKE and Trinity Environment variables"
   # Source the QT and TDE profile
-  [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh
-  [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
+  [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
+  [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
   cd "${srcdir}/${pkgname//tde-}"
 

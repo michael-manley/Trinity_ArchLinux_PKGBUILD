@@ -26,8 +26,8 @@ build() {
   ## Set up environment
   msg "Setting PATH, Trinity Environment variables"
   # Source the QT and TDE profile
-  [ "$QTDIR" = "" ] && . /etc/profile.d/tqt3.sh       # or tqt3.sh
-  [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh   # or tde.sh
+  [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh       # or tqt3.sh
+  [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh   # or tde.sh
 
   cd ${srcdir}/${pkgname#*-}
   ## Generate config files and update with autoreconf
