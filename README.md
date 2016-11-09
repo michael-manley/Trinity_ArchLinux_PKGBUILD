@@ -39,6 +39,8 @@ For additional packages a recommended order is shown
 15. tdeaddons
 
 # PKGFILE Completion
+Base Packages
+
 1. tqt3 [DONE]
 2. tqtinterface [DONE]
 3. arts [DONE]
@@ -49,6 +51,9 @@ For additional packages a recommended order is shown
 8. avahi-tqt [DONE]
 9. tdelibs [DONE]
 10. tdebase [DONE]
+
+Additional Packages
+
 11. tdebindings [DONE]
 12. tdeaccessibility [DONE]
 13. tdeutils [DONE]
