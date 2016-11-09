@@ -39,6 +39,8 @@ For additional packages a recommended order is shown
 15. tdeaddons
 
 # PKGFILE Completion
+Base Packages
+
 1. tqt3 [DONE]
 2. tqtinterface [DONE]
 3. arts [DONE]
@@ -49,22 +51,25 @@ For additional packages a recommended order is shown
 8. avahi-tqt [DONE]
 9. tdelibs [DONE]
 10. tdebase [DONE]
-11. tdebindings [DONE]
-12. tdeaccessibility [DONE]
-13. tdeutils [DONE]
-14. tdemultimedia [DONE]
-15. tdenetwork [DONE]
-16. tdeadmin [DONE]
-17. tdeartwork [DONE]
-18. tdegames
-19. tdetoys
-20. tdeedu
-21. tdegraphics
-22. tdepim [DONE]
-23. tdesdk
-24. tdevelop
-25. tdeaddons
-26. tde-libkdcraw [DONE]
-27. tde-libkexiv2 [DONE]
-28. tde-libcaldav [DONE]
-29. tde-libcarddav [DONE]
+
+Additional Packages
+
+1. tdebindings [DONE]
+2. tdeaccessibility [DONE]
+3. tdeutils [DONE]
+4. tdemultimedia [DONE]
+5. tdenetwork [DONE]
+6. tdeadmin [DONE]
+7. tdeartwork [DONE]
+8. tdegames
+9. tdetoys
+10. tdeedu
+11. tdegraphics
+12. tdepim [DONE]
+13. tdesdk
+14. tdevelop
+15. tdeaddons
+16. tde-libkdcraw [DONE]
+17. tde-libkexiv2 [DONE]
+18. tde-libcaldav [DONE]
+19. tde-libcarddav [DONE]
