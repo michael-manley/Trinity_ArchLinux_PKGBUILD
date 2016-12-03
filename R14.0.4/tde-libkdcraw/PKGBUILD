@@ -18,7 +18,7 @@ replaces=("trinity-${pkgname#*-}")
 options=('staticlibs' 'libtool' '!emptydirs')
 # install='pkgname.install'
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/libraries/libkdcraw-R${pkgver}.tar.bz2")
-md5sums=('c0a4f1d7687c98484297274d7bcd12d6')
+md5sums=('8ba1d417f43d1ce20950314b033d75f0')
 
 
 build() {

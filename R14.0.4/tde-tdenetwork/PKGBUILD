@@ -16,8 +16,12 @@ conflicts=('trinity-tdenetwork' 'trinity-kdenetwork')
 replaces=('trinity-tdenetwork')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdenetwork-R${pkgver}.tar.bz2")
-md5sums=('14f37c4a1a4c8bce815fef077c37558f')
+md5sums=('159618e4443a80ee2ac985aece85b807')
 # install=''
+
+prepare() {
+ patch -Np1 -i "${srcdir}/../kautoconfig.patch"
+}
 
 build() {
    msg "Setting PATH, CMAKE and Trinity Environment variables"

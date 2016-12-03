@@ -15,7 +15,7 @@ depends=('tde-tdebase')
 makedepends=('pkgconfig' 'cmake' 'python2')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdebindings-R${pkgver}.tar.bz2")
-md5sums=('04fb351b47f6eaea4f45a6b39f4cd2e4')
+md5sums=('bbb06cfe4a73054d7735980dfc279f20')
 # install=''
 
 build() {

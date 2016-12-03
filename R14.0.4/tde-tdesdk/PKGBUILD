@@ -1,29 +1,33 @@
 # Maintainer: Michael Manley <mmanley@nasutek.com>
 # Contributor: David C. Rankin <drankinatty at gmail dot com>
 
-pkgname=tde-tdemultimedia
+pkgname=tde-tdesdk
 pkgver=14.0.4
 pkgrel=1
-pkgdesc="Trinity Desktop MultiMedia Components"
 arch=('i686' 'x86_64')
-url='http://scm.trinitydesktop.org/scm/git/tdemultimedia'
+url='http://scm.trinitydesktop.org/scm/git/tdesdk'
 license=('GPL')
 groups=('tde-base')
+pkgdesc="Trinity Desktop Development Tools"
 depends=('tde-tdebase')
-makedepends=('pkgconfig' 'cmake')
-provides=('tdemultimedia')
-conflicts=('trinity-tdemultimedia' 'trinity-kdemultimedia')
-replaces=('trinity-tdemultimedia')
+makedepends=('pkgconfig' 'cmake' 'flex' 'subversion')
+provides=('tdesdk')
+conflicts=('trinity-tdesdk' 'trinity-kdesdk')
+replaces=('trinity-tdesdk')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdemultimedia-R${pkgver}.tar.bz2")
-md5sums=('5b5398adbd2a01297ae90a84c9ddf909')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdesdk-R${pkgver}.tar.bz2")
+md5sums=('dfdaa3dd27280146197f706b88b38cc3')
 # install=''
 
+#prepare() {
+# patch -Np1 -i "${srcdir}/../kautoconfig.patch"
+#}
+
 build() {
-  msg "Setting PATH, CMAKE and Trinity Environment variables"
-  # Source the QT and TDE profile
-  [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
-  [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
+   msg "Setting PATH, CMAKE and Trinity Environment variables"
+   # Source the QT and TDE profile
+   [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
+   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
   ## Generate config files and update with autoreconf
   cd ${srcdir}/${pkgname#*-}
@@ -47,13 +51,13 @@ build() {
     --sysconfdir=${TDEDIR}/etc \
     --localstatedir=/var \
     --enable-closure
-
   msg "Building - ${pkgname#*-}..."
   make $NUMJOBS
+
 }
 
 package() {
-  msg "Packaging - $pkgname-$pkgver"
+ msg "Packaging - $pkgname-$pkgver"
   cd ${srcdir}/${pkgname#*-}            # use for libtool
 
   make -j1 DESTDIR="${pkgdir}" install

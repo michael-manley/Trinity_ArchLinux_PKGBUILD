@@ -14,7 +14,7 @@ provides=('libcarddav')
 # conflicts=()
 replaces=('trinity-libcarddav')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/libcarddav-R${pkgver}.tar.bz2")
-md5sums=('7bc9c9abdb98a25a85e212b6c864c485')
+md5sums=('4b3ec29f012f14ecd92ed7a17b5e4343')
 
 _prefix=/usr
 

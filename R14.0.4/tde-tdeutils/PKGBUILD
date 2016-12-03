@@ -17,7 +17,7 @@ replaces=("trinity-${pkgname#*-}")
 options=('staticlibs' 'libtool' '!emptydirs')
 # install='pkgname.install'
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdeutils-R${pkgver}.tar.bz2")
-md5sums=('3b1ce9bf57acf1414f160204b6427f06')
+md5sums=('68f5900006c0ca23016baf1aadde39ce')
 
 build() {
 

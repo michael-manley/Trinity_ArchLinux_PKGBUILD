@@ -18,7 +18,7 @@ replaces=("${pkgname#*-}")
 options=('staticlibs' 'libtool' '!emptydirs')
 # install='pkgname.install'
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdeadmin-R${pkgver}.tar.bz2")
-md5sums=('522cd46e7ae8cf230c0bd095a4d2d051')
+md5sums=('8b14218fec46b6a1b62c464856cdbcea')
 
 
 build() {

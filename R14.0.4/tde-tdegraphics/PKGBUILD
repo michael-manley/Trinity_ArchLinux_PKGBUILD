@@ -1,23 +1,22 @@
 # Maintainer: Michael Manley <mmanley@nasutek.com>
-# Contributor: David C. Rankin <drankinatty at gmail dot com>
+# Contributor: e1z0 <marcinkeviciusjustinas at gmail dot com>
 
-pkgname=tde-tdeartwork
+pkgname=tde-tdegraphics
 pkgver=14.0.4
 pkgrel=1
+pkgdesc="Trinity Desktop Graphics Components"
 arch=('i686' 'x86_64')
-url='http://scm.trinitydesktop.org/scm/git/tdeartwork'
+url='http://scm.trinitydesktop.org/scm/git/tdegraphics'
 license=('GPL')
 groups=('tde-base')
-pkgdesc="Trinity Desktop Development Ingegration Components - TDE upstream GIT"
-depends=('tde-tdebase' 'xscreensaver' 'libxss')
-makedepends=('pkgconfig' 'cmake')
-optdepends=()
-provides=('tdeartwork')
-conflicts=('trinity-tdeartwork' 'trinity-kdeartwork')
-replaces=('trinity-tdeartwork')
+depends=('tde-tdebase')
+makedepends=('pkgconfig' 'cmake' 'imlib')
+provides=('tdegraphics')
+conflicts=('trinity-tdegraphics' 'trinity-kdegraphics')
+replaces=('trinity-tdegraphics')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdeartwork-R${pkgver}.tar.bz2")
-md5sums=('c9935804a3dd201deaa8960e922a24d3')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdegraphics-R${pkgver}.tar.bz2")
+md5sums=('4bdc83e76ee9d7aeb476b33b18a9be0f')
 # install=''
 
 build() {
@@ -31,7 +30,6 @@ build() {
   msg "Creating out-of-source build directory: ${srcdir}/build"
   mkdir -p build
   cd build
-
   msg "Starting cmake..."
   cmake ${srcdir}/${pkgname#*-} \
     -DCMAKE_VERBOSE_MAKEFILE=ON \
@@ -42,6 +40,7 @@ build() {
 
   msg "Building - ${pkgname#*-}..."
   make $NUMJOBS
+
 }
 
 package() {
