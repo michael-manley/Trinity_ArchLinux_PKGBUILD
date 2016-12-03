@@ -1,0 +1,48 @@
+# Contributor: e1z0 <justinas at eofnet dot lt>
+
+pkgname=tde-tdewebdev
+pkgver=14.0.4
+pkgrel=1
+arch=('i686' 'x86_64')
+url='http://scm.trinitydesktop.org/scm/git/tdewebdev'
+license=('GPL')
+groups=('tde-base')
+pkgdesc="Trinity Web Developer Tools"
+depends=('tde-tdebase')
+makedepends=('pkgconfig' 'cmake')
+provides=('tdewebdev')
+conflicts=('trinity-tdewebdev' 'trinity-kdewebdev')
+replaces=('trinity-tdewebdev')
+options=('staticlibs' 'libtool' '!strip')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdewebdev-R${pkgver}.tar.bz2")
+md5sums=('3fdf3b1386f1be097184e3335c60456e')
+# install=''
+
+build() {
+   msg "Setting PATH, CMAKE and Trinity Environment variables"
+   # Source the QT and TDE profile
+   [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
+   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
+
+   cd $srcdir
+   msg "Creating out-of-source build directory: ${srcdir}/build"
+   mkdir -p build
+   cd build
+
+   msg "Starting cmake..."
+   cmake ${srcdir}/${pkgname#*-} \
+      -DCMAKE_VERBOSE_MAKEFILE=ON \
+      -DCMAKE_INSTALL_PREFIX=$TDEDIR \
+      -DWITH_SPEEX=ON \
+      -DWITH_ARTS=ON \
+      -DBUILD_ALL=ON
+
+   msg "Building - ${pkgname#*-}..."
+   make $NUMJOBS
+}
+
+package() {
+   msg "Packaging - $pkgname-$pkgver"
+   cd ${srcdir}/build
+   make -j1 DESTDIR="${pkgdir}" install
+}

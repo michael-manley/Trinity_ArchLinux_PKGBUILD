@@ -48,4 +48,9 @@ package() {
   msg "Packaging - $pkgname-$pkgver"
   cd ${srcdir}/build
   make -j1 DESTDIR="${pkgdir}" install
+  msg "Removing conflicting images"  
+  rm ${pkgdir}/opt/trinity/share/icons/locolor/16x16/apps/kbabel.png
+  rm ${pkgdir}/opt/trinity/share/icons/locolor/32x32/apps/kbabel.png
+  rm ${pkgdir}/opt/trinity/share/icons/locolor/16x16/apps/ktimemon.png
+  rm ${pkgdir}/opt/trinity/share/icons/locolor/32x32/apps/ktimemon.png
 }

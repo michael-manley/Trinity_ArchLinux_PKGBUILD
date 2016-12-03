@@ -1,0 +1,77 @@
+# Maintainer: e1z0 <justinas at eofnet dot lt>
+
+pkgname=tde-tdeedu
+pkgver=14.0.4
+pkgrel=1
+pkgdesc="Educational utilities for the TDE Desktop"
+arch=('i686' 'x86_64')
+url="http://scm.trinitydesktop.org/scm/git/${pkgname#*-}"
+license=('GPL')
+groups=('tde-base' 'tde-extra' 'tde-complete')
+depends=('tde-tdebase')
+makedepends=('pkgconfig' 'autoconf')
+optdepends=()
+provides=("${pkgname#*-}")
+conflicts=("trinity-${pkgname#*-}")
+replaces=("trinity-${pkgname#*-}")
+options=('staticlibs' 'libtool' '!emptydirs')
+# install='pkgname.install'
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdeedu-R${pkgver}.tar.bz2")
+md5sums=('b5e50e61c0cdd0ae6271e67c6a8a41a1')
+
+build() {
+  cd ${srcdir}
+  ## Set up environment
+  msg "Setting PATH, Trinity Environment variables"
+  # Source the QT and TDE profile
+  [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh       # or tqt3.sh
+  [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh   # or tde.sh
+
+  cd ${srcdir}/${pkgname#*-}
+  ## Generate config files and update with autoreconf
+
+  msg "Copying system libtool files...."
+  cp /usr/share/aclocal/libtool.m4 ./admin/libtool.m4.in
+  cp /usr/share/libtool/build-aux/ltmain.sh ./admin/ltmain.sh
+
+  msg "Running make -f admin/Makefile.common ...."
+  make -f admin/Makefile.common
+
+  ## configure
+  msg "Configuring - ${pkgname}..."
+  ./configure \
+    --prefix=${TDEDIR} \
+    --with-qt-dir=${QTDIR} \
+    --with-extra-libs=${TDEDIR}/lib/trinity \
+    --localstatedir=/var \
+    --enable-kttsd-epos=no \
+    --enable-kttsd-festivalint=no \
+    --enable-kttsd-flite=no \
+    --enable-kttsd-freetts=no \
+    --enable-kttsd-hadifix=no \
+    --enable-debug=full \
+    --enable-closure
+
+  msg "Building - ${pkgname}..."
+
+  make $NUMJOBS
+
+}
+
+package() {
+  msg "Packaging - $pkgname-$pkgver"
+
+  cd ${srcdir}/${pkgname#*-}            # use for non-out-of-source
+
+  make -j1 DESTDIR="$pkgdir" install
+
+#  # remove icons that conflict with tdelibs
+#  msg "Removing kttsd.png icons that conflict with tdelibs..."
+#  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/16x16/apps/kttsd.png
+#  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/22x22/apps/kttsd.png
+#  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/32x32/apps/kttsd.png
+#  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/48x48/apps/kttsd.png
+#  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/64x64/apps/kttsd.png
+#  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/128x128/apps/kttsd.png
+#  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/scalable/apps/kttsd.svgz
+}

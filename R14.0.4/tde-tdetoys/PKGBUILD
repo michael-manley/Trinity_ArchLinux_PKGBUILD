@@ -1,0 +1,48 @@
+# Contributor: e1z0 <justinas at eofnet dot lt>
+
+pkgname=tde-tdetoys
+pkgver=14.0.4
+pkgrel=1
+arch=('i686' 'x86_64')
+url='http://scm.trinitydesktop.org/scm/git/tdetoys'
+license=('GPL')
+groups=('tde-base')
+pkgdesc="Trinity Desktop Toys"
+depends=('tde-tdebase')
+makedepends=('pkgconfig' 'cmake' 'tde-tdegames')
+provides=('tdetoys')
+conflicts=('trinity-tdetoys' 'trinity-kdetoys')
+replaces=('trinity-tdetoys')
+options=('staticlibs' 'libtool' '!strip')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdetoys-R${pkgver}.tar.bz2")
+md5sums=('f52beeca832344545d9138ba0dd3cc8f')
+# install=''
+
+build() {
+   msg "Setting PATH, CMAKE and Trinity Environment variables"
+   # Source the QT and TDE profile
+   [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
+   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
+
+   cd $srcdir
+   msg "Creating out-of-source build directory: ${srcdir}/build"
+   mkdir -p build
+   cd build
+
+   msg "Starting cmake..."
+   cmake ${srcdir}/${pkgname#*-} \
+      -DCMAKE_VERBOSE_MAKEFILE=ON \
+      -DCMAKE_INSTALL_PREFIX=$TDEDIR \
+      -DWITH_SPEEX=ON \
+      -DWITH_ARTS=ON \
+      -DBUILD_ALL=ON
+
+   msg "Building - ${pkgname#*-}..."
+   make $NUMJOBS
+}
+
+package() {
+   msg "Packaging - $pkgname-$pkgver"
+   cd ${srcdir}/build
+   make -j1 DESTDIR="${pkgdir}" install
+}

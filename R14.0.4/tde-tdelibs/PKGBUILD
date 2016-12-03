@@ -91,4 +91,6 @@ package() {
   msg "Packaging - $pkgname-$pkgver"
   cd ${srcdir}/build
   make -j1 DESTDIR="$pkgdir" install
+  msg "Removing conflicting images"
+  rm ${pkgdir}/opt/trinity/share/mimelnk/application/x-mplayer2.desktop
 }
