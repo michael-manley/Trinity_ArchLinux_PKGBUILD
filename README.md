@@ -58,4 +58,12 @@ done
 2. gtk-qt-engine [DONE]
 3. gtk3-tqt-engine [in progress]
 4. kmplayer [DONE]
-5. amarok [in progress]
+5. amarok [in progress] - install ruby1.8 from aur
+6. krusader [DONE]
+7. ksplash-engine-moodin [DONE]
+8. twin-style-crystal [DONE]
+9. tdmtheme [DONE]
+10. tdesudo [DONE]
+11. tdenetworkmanager [DONE]
+12. tde-systemsettings [in progress]
+13. tde-style-qtcurve [DONE]
