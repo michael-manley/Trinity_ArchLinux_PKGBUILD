@@ -52,6 +52,6 @@ done
 
 
 [Applications]
-tde-tdepowersave [DONE]
-gtk-qt-engine [DONE]
-gtk3-tqt-engine [in progress]
+1. tde-tdepowersave [DONE]
+2. gtk-qt-engine [DONE]
+3. gtk3-tqt-engine [in progress]
