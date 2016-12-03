@@ -51,7 +51,7 @@ done
 17. tdeaddons [in progress]
 
 
-[Applications]
+## Applications
 1. tde-tdepowersave [DONE]
 2. gtk-qt-engine [DONE]
 3. gtk3-tqt-engine [in progress]
