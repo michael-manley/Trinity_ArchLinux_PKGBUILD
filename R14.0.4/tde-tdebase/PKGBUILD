@@ -22,7 +22,8 @@ depends=('libraw1394'
          'ttf-freefont'
          'xorg-server'
          'xorg-xinit'
-         'htdig')
+         'htdig'
+         'openssl-1.0')
 makedepends=('autoconf'
 	     'cmake'
 	     'imake'
@@ -56,7 +57,8 @@ source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdebas
         'tdm-trinity'
         'trinity.desktop'
         'tdm.service'
-        'xsession.patch')
+        'xsession.patch'
+        'openssl.patch')
 
 md5sums=('dae53b392323cd001f007789d38c1d8f'
          '2dac928c6177b9fa0f4e751d7dddc62e'
@@ -66,7 +68,8 @@ md5sums=('dae53b392323cd001f007789d38c1d8f'
          'bb4c25e560fa719e8e8f49ef80bd1c99'
          '091f4e1045867bbbc15bf323731aae82'
          'e0ddb96fc86bd081ce691744a68d2f9a'
-         'a761787a4d2f917389ced194552addca')
+         'a761787a4d2f917389ced194552addca'
+         'a1ba5904bf4f42c83de67095dde75a2f')
 
 build() {
   cd ${srcdir}/${pkgname#*-}
@@ -76,11 +79,16 @@ build() {
   [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
+  msg "Patching for OpenSSL-1.0 Support"
+  patch -p1 -i ${srcdir}/openssl.patch
+
   msg "Creating out-of-source build directory: ${srcdir}/build"
   mkdir -p ../build
   cd ../build
 
   msg "Starting cmake..."
+
+  export PKG_CONFIG_PATH=/usr/lib/openssl-1.0/pkgconfig
 
   cmake ${srcdir}/tdebase \
     -DCMAKE_INSTALL_PREFIX=${TDEDIR} \

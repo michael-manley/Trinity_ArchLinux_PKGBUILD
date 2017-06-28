@@ -11,7 +11,7 @@ arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/tqca-tls'
 license=('GPL')
 groups=('tde-core' 'tde-base')
-depends=('tde-tqtinterface' 'openssl')
+depends=('tde-tqtinterface' 'openssl-1.0')
 makedepends=('pkgconfig')
 provides=('tqca-tls')
 conflicts=('trinity-tqca-tls')
@@ -28,7 +28,8 @@ build() {
   cd ${srcdir}/dependencies/${pkgname#*-}
 
   msg "Starting configure..."
-  ./configure --qtdir=${QTDIR}
+  ./configure --qtdir=${QTDIR} --with-openssl-inc=/usr/include/openssl-1.0 \
+     --with-openssl-lib=/usr/lib/openssl-1.0
 
   msg "Building - $pkgname..."
   make  || return 1

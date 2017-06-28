@@ -20,6 +20,7 @@ depends=('aspell'
 	'libxcomposite'
 	'libxslt'
 	'libxtst'
+	'openssl-1.0'
 	'openexr'
 	'pcre'
 	'tde-arts'
@@ -35,9 +36,10 @@ provides=('tdelibs')
 conflicts=('trinity-kdelibs' 'trinity-tdelibs' 'kdemod3-kdelibs' 'kdelibs3')
 replaces=('trinity-kdelibs' 'trinity-tdelibs')
 options=('staticlibs' 'libtool' '!makeflags' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdelibs-R${pkgver}.tar.bz2")
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdelibs-R${pkgver}.tar.bz2" "openssl-patch.patch")
 
-md5sums=('7d55a106566f2772c5627154b1cc8765')
+md5sums=('7d55a106566f2772c5627154b1cc8765'
+         '159ae05fcc2e3cc3b1dd58672d497dd4')
 
 install='trinity-tdelibs.install'
 
@@ -47,12 +49,17 @@ build() {
   [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
-  cd "${srcdir}/${pkgname//tde-}"
+  cd "${srcdir}/tdelibs"
+
+  msg "Patching for OpenSSL 1.0 Use"
+  patch -p1 -i ${srcdir}/openssl-patch.patch
 
   cd $srcdir
   msg "Creating out-of-source build directory: ${srcdir}/${_builddir}"
   mkdir -p build
   cd build
+
+  export PKG_CONFIG_PATH=/usr/lib/openssl-1.0/pkgconfig
 
   msg "Starting cmake..."
   cmake ${srcdir}/tdelibs \
