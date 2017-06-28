@@ -39,3 +39,24 @@ diff -Naur tdebase-orig/tdm/kfrontend/CMakeLists.txt tdebase/tdm/kfrontend/CMake
  
  tde_add_executable( tdm_config
    SOURCES tdm_config.c
+diff -Naur tdebase-orig/twin/client.cpp tdebase/twin/client.cpp
+--- tdebase-orig/twin/client.cpp	2015-09-22 20:07:45.000000000 -0700
++++ tdebase/twin/client.cpp	2017-06-28 09:04:03.365924288 -0700
+@@ -509,7 +509,7 @@
+     int format, result;
+     unsigned long n, left;
+     result = XGetWindowProperty(tqt_xdisplay(), window(), atoms->net_wm_system_modal_notification, 0L, 1L, False, XA_CARDINAL, &actual, &format, &n, &left, /*(unsigned char **)*/ &data);
+-    if (result == Success && data != None && format == 32 )
++    if (result == Success && data != 0 && format == 32 )
+         {
+         return TRUE;
+         }
+@@ -2975,7 +2975,7 @@
+     int format, result;
+     unsigned long n, left;
+     result = XGetWindowProperty(tqt_xdisplay(), window(), atoms->net_wm_window_opacity, 0L, 1L, False, XA_CARDINAL, &actual, &format, &n, &left, /*(unsigned char **)*/ &data);
+-    if (result == Success && data != None && format == 32 )
++    if (result == Success && data != 0 && format == 32 )
+         {
+         opacity_ = *reinterpret_cast< long* >( data );
+         custom_opacity = true;
