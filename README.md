@@ -17,53 +17,22 @@ OR
 source ../environment
 ```
 
-There is a script for that:
+This script will get you to a basic Trinity environment
 ```
 #!/bin/sh
 git clone https://github.com/e1z0/Trinity_ArchLinux_PKGBUILD.git trinity
 cd trinity/R14.0.4
 dir=$PWD
-for pkg in tqt3 tqtinterface arts dbus-tqt dbus-1-tqt tqca-tls libart-lgpl avahi-tqt tdelibs tdebase tdebindings 
-tdeaccessibility tdeutils; do
+for pkg in tqt3 tqtinterface arts dbus-tqt dbus-1-tqt tqca-tls libart-lgpl avahi-tqt tdelibs tdebase; do
   cd "$dir"/tde-"$pkg"
   makepkg -Lsci
 done
 
 ```
 
-## Ported Packages
-1. tdebindings [DONE]
-2. tdeaccessibility [DONE]
-3. tdeutils [DONE]
-4. tdemultimedia [DONE]
-5. tdenetwork [DONE]
-6. tdeadmin [DONE]
-7. tdeartwork [DONE]
-8. tdegraphics [DONE]
-9. tdepim [DONE]
-10. tdesdk [DONE]
-11. tde-libkdcraw [DONE]
-12. tde-libkexiv2 [DONE]
-13. tde-libcaldav [DONE]
-14. tde-libcarddav [DONE]
-15. tdevelop [in progress] - fails with linkink against qt-mt
-16. tde-tdegames [DONE] 
-17. tde-tdeaddons [DONE]
-18. tdeedu [DONE]
-19. tde-tdewebdev [DONE]
-20. tde-tdetoys [DONE]
+## Unbuildable Packages
+Here lists the unbuildable packages at the moment. Please help make these packages buildable and submit any pull
+requests to fix them. Each package has a Bug entry which includes the build log for reference.
 
-## Applications
-1. tde-tdepowersave [DONE]
-2. gtk-qt-engine [DONE]
-3. gtk3-tqt-engine [in progress]
-4. kmplayer [DONE]
-5. amarok [in progress] - install ruby1.8 from aur
-6. krusader [DONE]
-7. ksplash-engine-moodin [DONE]
-8. twin-style-crystal [DONE]
-9. tdmtheme [DONE]
-10. tdesudo [DONE]
-11. tdenetworkmanager [DONE]
-12. tde-systemsettings [in progress]
-13. tde-style-qtcurve [DONE]
+1. tde-tdeartwork - Fails with undefined references see Issue #19
+2. tde-tdesdk - Fails with undeclared types see Issue #20

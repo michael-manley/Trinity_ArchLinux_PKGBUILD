@@ -14,8 +14,10 @@ pkgdesc="Trinity Desktop bindings"
 depends=('tde-tdebase')
 makedepends=('pkgconfig' 'cmake' 'python2')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdebindings-R${pkgver}.tar.bz2")
-md5sums=('bbb06cfe4a73054d7735980dfc279f20')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdebindings-R${pkgver}.tar.bz2" 
+        "tdebindings-perl-fix.patch")
+md5sums=('bbb06cfe4a73054d7735980dfc279f20'
+         'ce7c6b17f180f08afae5b123465c3952')
 # install=''
 
 build() {
@@ -26,6 +28,8 @@ build() {
 
   ## Generate config files and update with autoreconf
   cd ${srcdir}/${pkgname#*-}
+
+  patch -p1 -i ${srcdir}/tdebindings-perl-fix.patch
 
   msg "Copying system libtool files...."
   cp /usr/share/aclocal/libtool.m4 ./admin/libtool.m4.in

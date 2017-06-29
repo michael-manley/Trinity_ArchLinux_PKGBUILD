@@ -15,8 +15,10 @@ provides=('tdevelop')
 conflicts=('trinity-tdevelop' 'trinity-kdevelop')
 replaces=('trinity-tdevelop')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdevelop-R${pkgver}.tar.bz2")
-md5sums=('173c677acbbf44155b4f242e69174523')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdevelop-R${pkgver}.tar.bz2"
+        "fix_tqt_error.patch")
+md5sums=('173c677acbbf44155b4f242e69174523'
+         'da7c0a4793e98351d9f2d4122d3d2626')
 # install=''
 
 build() {
@@ -25,10 +27,12 @@ build() {
    [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
    [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
-   cd $srcdir
+   cd ${srcdir}/${pkgname#*-}
+   patch -p1 -i ${srcdir}/fix_tqt_error.patch
+
    msg "Creating out-of-source build directory: ${srcdir}/build"
-   mkdir -p build
-   cd build
+   mkdir -p ${srcdir}/build
+   cd ${srcdir}/build
 
    msg "Starting cmake..."
    cmake ${srcdir}/${pkgname#*-} \

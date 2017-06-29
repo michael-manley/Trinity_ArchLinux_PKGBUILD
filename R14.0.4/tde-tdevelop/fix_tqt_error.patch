@@ -1,0 +1,26 @@
+diff -Naur tdevelop-orig/lib/interfaces/external/CMakeLists.txt tdevelop/lib/interfaces/external/CMakeLists.txt
+--- tdevelop-orig/lib/interfaces/external/CMakeLists.txt	2015-09-22 20:10:40.000000000 -0700
++++ tdevelop/lib/interfaces/external/CMakeLists.txt	2017-06-29 04:29:48.095622130 -0700
+@@ -15,6 +15,9 @@
+   ${TQT_INCLUDE_DIRS}
+ )
+ 
++link_directories (
++  ${TQT_LIBRARY_DIRS}
++)
+ 
+ ##### headers ###################################
+ 
+diff -Naur tdevelop-orig/src/newui/CMakeLists.txt tdevelop/src/newui/CMakeLists.txt
+--- tdevelop-orig/src/newui/CMakeLists.txt	2015-09-22 20:10:40.000000000 -0700
++++ tdevelop/src/newui/CMakeLists.txt	2017-06-29 04:34:10.788957492 -0700
+@@ -15,6 +15,9 @@
+   ${TQT_INCLUDE_DIRS}
+ )
+ 
++link_directories(
++  ${TQT_LIBRARY_DIRS}
++)
+ 
+ ##### d (shared) ################################
+ 
