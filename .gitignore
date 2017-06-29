@@ -7,3 +7,5 @@
 */applications/*/*.tar.bz2
 */applications/*/*.pkg.tar.xz
 *~
+*-orig
+*-patch

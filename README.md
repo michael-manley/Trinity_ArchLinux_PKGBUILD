@@ -35,4 +35,3 @@ Here lists the unbuildable packages at the moment. Please help make these packag
 requests to fix them. Each package has a Bug entry which includes the build log for reference.
 
 1. tde-tdeartwork - Fails with undefined references see Issue #19
-2. tde-tdesdk - Fails with undeclared types see Issue #20

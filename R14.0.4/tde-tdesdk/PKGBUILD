@@ -42,7 +42,7 @@ build() {
   ## configure
   msg "Configuring - ${pkgname}..."
   CFLAGS="${CFLAGS} -fpermissive" \
-  CXXFLAGS="${CXXFLAGS} -fpermissive" \
+  CXXFLAGS="${CXXFLAGS} -std=c++0x -fpermissive" \
   ./configure \
     --prefix=${TDEDIR} \
     --with-qt-dir=${QTDIR} \

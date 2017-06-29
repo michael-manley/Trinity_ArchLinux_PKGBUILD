@@ -38,8 +38,9 @@ build() {
    cmake ${srcdir}/${pkgname#*-} \
       -DCMAKE_VERBOSE_MAKEFILE=ON \
       -DCMAKE_INSTALL_PREFIX=$TDEDIR \
-      -DWITH_SPEEX=ON \
-      -DWITH_ARTS=ON \
+      -DWITH_BUILDTOOL_ALL=ON \
+      -DWITH_LANGUAGE_ALL=ON \
+      -DWITH_VCS_ALL=ON \
       -DBUILD_ALL=ON
 
    msg "Building - ${pkgname#*-}..."
