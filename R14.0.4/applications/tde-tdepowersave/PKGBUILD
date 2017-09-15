@@ -11,7 +11,7 @@ pkgdesc="Trinity Desktop Enviroment $_cat$_mod"
 arch=('i686' 'x86_64')
 url="http://scm.trinitydesktop.org/scm/git/$_mod"
 license=('GPL')
-provides=("$_mod")
+#provides=("$_mod")
 groups=('tde-complete')
 depends=(
   'tde-tdelibs'
@@ -24,7 +24,7 @@ makedepends=(
 )
 optdepends=()
 confilicts=("trinity-$_kdemod" "kdemod3-$_kdemod")
-replaces=("trinity-$_mod")
+#replaces=("trinity-$_mod")
 options=('staticlibs' 'libtool' '!strip')
 install=
 
