@@ -10,7 +10,7 @@ pkgdesc="Trinity ARTS Sound System and libraries"
 arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/arts'
 license=('GPL')
-groups=('tde-core' 'tde-base')
+groups=('tde-core')
 depends=('alsa-plugins'
 	'alsa-tools'
 	'alsa-utils'

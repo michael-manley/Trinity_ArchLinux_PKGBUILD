@@ -2,10 +2,10 @@
 */*/src
 */*/*.tar.bz2
 */*/*.pkg.tar.xz
-*/applications/*/pkg
-*/applications/*/src
-*/applications/*/*.tar.bz2
-*/applications/*/*.pkg.tar.xz
+*/*/*/pkg
+*/*/*/src
+*/*/*/*.tar.bz2
+*/*/*/*.pkg.tar.xz
 *~
 *-orig
 *-patch

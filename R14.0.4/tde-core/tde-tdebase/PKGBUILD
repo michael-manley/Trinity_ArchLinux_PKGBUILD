@@ -9,7 +9,7 @@ arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/tdebase'
 license=('GPL')
 provides=('tdebase')
-groups=('tde-core' 'tde-base' 'tde-extra' 'tde-multimedia' 'tde-complete')
+groups=('tde-core')
 # depends=('hal'
 depends=('libraw1394'
          'libxtst'

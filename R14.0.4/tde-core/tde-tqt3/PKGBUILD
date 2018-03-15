@@ -11,7 +11,7 @@ pkgdesc="The TQt3 gui toolkit - based on TDE upstream Qt3"
 arch=('i686' 'x86_64')
 url="http://scm.trinitydesktop.org/scm/git/tqt3"
 license=('GPL')
-groups=('tde-core' 'tde-base')
+groups=('tde-core')
 options=('staticlibs' 'libtool' '!emptydirs' '!strip')
 makedepends=('libcups'
 	'libiodbc'
@@ -132,6 +132,7 @@ package_tde-tqt3() {
   provides=('qt3' 'tqt3')
   replaces=('qt3' 'qt3-enhanced' 'trinity-tqt3')
   options=('staticlibs' 'libtool' '!emptydirs' '!strip')
+  groups=('tde-core')
   install='tqt3.install'
 
    msg "Packaging - $pkgname-$pkgver"
