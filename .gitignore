@@ -2,10 +2,12 @@
 */*/src
 */*/*.tar.bz2
 */*/*.pkg.tar.xz
+*/*/*.sig
 */*/*/pkg
 */*/*/src
 */*/*/*.tar.bz2
 */*/*/*.pkg.tar.xz
+*/*/*/*.sig
 *~
 *-orig
 *-patch

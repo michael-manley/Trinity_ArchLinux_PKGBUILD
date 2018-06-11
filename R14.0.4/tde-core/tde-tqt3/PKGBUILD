@@ -70,6 +70,7 @@ build() {
     -I/usr/include/postgresql/server \
     -I/usr/include/libiodbc \
     -I/usr/include/freetype2 \
+    -I/usr/include/tirpc \
     -lpq \
     -lmysqlclient \
     -L/usr/lib/mysql \
@@ -168,7 +169,7 @@ package_tde-tqt3() {
    echo "export QTDIR=${_prefix}" > "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
    echo "export TQTDIR=${_prefix}" >> "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
    echo "export QT_XFT=true" >> "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
-   echo "export PATH=$PATH:${_prefix}/bin" >> "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
+   echo "export PATH=\$PATH:${_prefix}/bin" >> "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
    echo "export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:${_prefix}/pkgconfig" >> "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
    chmod 0755 "${pkgdir}/usr/share/trinity/srcldr/${pkgbase#*-}.sh"
 
