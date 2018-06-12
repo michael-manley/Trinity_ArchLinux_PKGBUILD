@@ -3,7 +3,7 @@
 pkgname=tde-twin-style-crystal
 pkgver=14.0.4
 pkgrel=1
-pkgdesc="gtk qt engine"
+pkgdesc="TDE TWin Style Crystal"
 arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/applications/twin-style-crystal'
 license=('GPL')
@@ -26,7 +26,7 @@ build() {
   # old ruby1.8 path
   export PATH=/opt/ruby1.8/bin:$PATH
   ## Generate config files and update with autoreconf
-  cd ${srcdir}/applications/${pkgname}
+  cd ${srcdir}/applications/${pkgname#*-}
 
   msg "Copying system libtool files...."
   cp /usr/share/aclocal/libtool.m4 ./admin/libtool.m4.in
@@ -36,7 +36,7 @@ build() {
   make -f admin/Makefile.common
 
   ## configure
-  msg "Configuring - ${pkgname}..."
+  msg "Configuring - ${pkgname#*-}..."
   CFLAGS="${CFLAGS} -fpermissive" \
   CXXFLAGS="${CXXFLAGS} -fpermissive" \
   ./configure \
@@ -54,7 +54,7 @@ make $NUMJOBS
 
 package() {
 msg "Packaging - $pkgname-$pkgver"
-  cd ${srcdir}/applications/${pkgname}            # use for libtool
+  cd ${srcdir}/applications/${pkgname#*-}            # use for libtool
 
 make -j1 DESTDIR="${pkgdir}" install
 }

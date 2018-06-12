@@ -26,7 +26,7 @@ build() {
   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
  ## Generate config files and update with autoreconf
-  cd ${srcdir}/applications/${pkgname}
+  cd ${srcdir}/applications/${pkgname#*-}
 
   msg "Creating out-of-source build directory: ${srcdir}/build"
   mkdir -p "$srcdir/build"
@@ -34,7 +34,7 @@ build() {
 
   msg "Starting cmake..."
 
-  cmake ${srcdir}/applications/${pkgname} \
+  cmake ${srcdir}/applications/${pkgname#*-} \
     -DCMAKE_INSTALL_PREFIX=${TDEDIR} \
     -DSYSCONF_INSTALL_DIR=${TDEDIR}/etc \
     -DBUILD_ALL=ON \

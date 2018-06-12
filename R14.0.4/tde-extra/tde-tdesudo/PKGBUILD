@@ -3,7 +3,7 @@
 pkgname=tde-tdesudo
 pkgver=14.0.4
 pkgrel=1
-pkgdesc="gtk qt engine"
+pkgdesc="TDE Sudo"
 arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/applications/tdesudo'
 license=('GPL')
@@ -36,7 +36,7 @@ build() {
   make -f admin/Makefile.common
 
   ## configure
-  msg "Configuring - ${pkgname}..."
+  msg "Configuring - ${pkgname#*-}..."
   CFLAGS="${CFLAGS} -fpermissive" \
   CXXFLAGS="${CXXFLAGS} -fpermissive" \
   ./configure \
@@ -54,7 +54,7 @@ make $NUMJOBS
 
 package() {
 msg "Packaging - $pkgname-$pkgver"
-  cd ${srcdir}/applications/${pkgname}            # use for libtool
+  cd ${srcdir}/applications/${pkgname#*-}            # use for libtool
 
 make -j1 DESTDIR="${pkgdir}" install
 }

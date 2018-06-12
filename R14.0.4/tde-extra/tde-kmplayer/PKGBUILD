@@ -4,7 +4,7 @@
 pkgname=tde-kmplayer
 pkgver=14.0.4
 pkgrel=1
-pkgdesc="gtk qt engine"
+pkgdesc="TDE KMPlayer"
 arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/applications/kmplayer'
 license=('GPL')
@@ -26,7 +26,7 @@ build() {
   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
 
   ## Generate config files and update with autoreconf
-  cd ${srcdir}/applications/${pkgname}
+  cd ${srcdir}/applications/${pkgname#*-}
 
   msg "Copying system libtool files...."
   cp /usr/share/aclocal/libtool.m4 ./admin/libtool.m4.in
@@ -54,7 +54,7 @@ make $NUMJOBS
 
 package() {
 msg "Packaging - $pkgname-$pkgver"
-  cd ${srcdir}/applications/${pkgname}            # use for libtool
+  cd ${srcdir}/applications/${pkgname#*-}            # use for libtool
 
 make -j1 DESTDIR="${pkgdir}" install
 }
