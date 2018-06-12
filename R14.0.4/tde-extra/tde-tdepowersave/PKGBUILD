@@ -12,7 +12,7 @@ arch=('i686' 'x86_64')
 url="http://scm.trinitydesktop.org/scm/git/$_mod"
 license=('GPL')
 #provides=("$_mod")
-groups=('tde-complete')
+groups=('tde-extra')
 depends=(
   'tde-tdelibs'
   'tde-dbus-1-tqt'

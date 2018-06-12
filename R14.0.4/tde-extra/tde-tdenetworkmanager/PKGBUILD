@@ -1,13 +1,13 @@
 # Contributor: e1z0 <justinas at eofnet dot lt>
 
-pkgname=tdenetworkmanager
+pkgname=tde-tdenetworkmanager
 pkgver=14.0.4
 pkgrel=1
 pkgdesc="gtk qt engine"
 arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/applications/tdenetworkmanager'
 license=('GPL')
-groups=('tde-base')
+groups=('tde-extra')
 depends=('tde-tdebase')
 makedepends=('pkgconfig' 'cmake')
 #provides=('tdenetworkmanager')

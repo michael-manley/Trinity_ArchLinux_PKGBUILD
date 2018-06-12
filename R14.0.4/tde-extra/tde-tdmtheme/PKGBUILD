@@ -1,21 +1,21 @@
 # Contributor: e1z0 <justinas at eofnet dot lt>
 
-pkgname=ksplash-engine-moodin
+pkgname=tde-tdmtheme
 pkgver=14.0.4
 pkgrel=1
 pkgdesc="gtk qt engine"
 arch=('i686' 'x86_64')
-url='http://scm.trinitydesktop.org/scm/git/applications/ksplash-engine-moodin'
+url='http://scm.trinitydesktop.org/scm/git/applications/tdmtheme'
 license=('GPL')
-groups=('tde-base')
+groups=('tde-extra')
 depends=('tde-tdebase')
 makedepends=('pkgconfig' 'automake')
-#provides=('ksplash-engine-moodin')
-#conflicts=('ksplash-engine-moodin')
-#replaces=('ksplash-engine-moodin')
+#provides=('tdmtheme')
+#conflicts=('tdmtheme')
+#replaces=('tdmtheme')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/ksplash-engine-moodin-R${pkgver}.tar.bz2")
-md5sums=('8085b570cc62e36f6c85e590386b3891')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/tdmtheme-R${pkgver}.tar.bz2")
+md5sums=('fce3b57a787a49ca1d3dc96a420ceb5d')
 # install=''
 
 build() {

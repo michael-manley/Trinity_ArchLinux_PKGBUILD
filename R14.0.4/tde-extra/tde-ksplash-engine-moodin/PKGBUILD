@@ -1,21 +1,21 @@
 # Contributor: e1z0 <justinas at eofnet dot lt>
 
-pkgname=tdesudo
+pkgname=tde-ksplash-engine-moodin
 pkgver=14.0.4
 pkgrel=1
 pkgdesc="gtk qt engine"
 arch=('i686' 'x86_64')
-url='http://scm.trinitydesktop.org/scm/git/applications/tdesudo'
+url='http://scm.trinitydesktop.org/scm/git/applications/ksplash-engine-moodin'
 license=('GPL')
-groups=('tde-base')
+groups=('tde-extra')
 depends=('tde-tdebase')
 makedepends=('pkgconfig' 'automake')
-#provides=('tdesudo')
-#conflicts=('tdesudo')
-#replaces=('tdesudo')
+#provides=('ksplash-engine-moodin')
+#conflicts=('ksplash-engine-moodin')
+#replaces=('ksplash-engine-moodin')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/tdesudo-R${pkgver}.tar.bz2")
-md5sums=('2f39549075ca9025f1028cb72c99312c')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/ksplash-engine-moodin-R${pkgver}.tar.bz2")
+md5sums=('8085b570cc62e36f6c85e590386b3891')
 # install=''
 
 build() {

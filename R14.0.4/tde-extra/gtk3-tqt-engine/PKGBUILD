@@ -1,14 +1,14 @@
 # Maintainer: Michael Manley <mmanley@nasutek.com>
 # Contributor: David C. Rankin <drankinatty at gmail dot com>
 
-pkgname=gtk3-tqt-engine
+pkgname=tde-gtk3-tqt-engine
 pkgver=14.0.4
 pkgrel=1
 pkgdesc="gtk3 tqt engine"
 arch=('i686' 'x86_64')
 url='http://scm.trinitydesktop.org/scm/git/applications/gtk3-tqt-engine'
 license=('GPL')
-groups=('tde-base')
+groups=('tde-extra')
 depends=('tde-tdebase')
 makedepends=('pkgconfig' 'cmake')
 #provides=('tdemultimedia')

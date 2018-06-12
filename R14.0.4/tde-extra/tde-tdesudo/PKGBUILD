@@ -1,21 +1,21 @@
 # Contributor: e1z0 <justinas at eofnet dot lt>
 
-pkgname=tdmtheme
+pkgname=tde-tdesudo
 pkgver=14.0.4
 pkgrel=1
 pkgdesc="gtk qt engine"
 arch=('i686' 'x86_64')
-url='http://scm.trinitydesktop.org/scm/git/applications/tdmtheme'
+url='http://scm.trinitydesktop.org/scm/git/applications/tdesudo'
 license=('GPL')
-groups=('tde-base')
+groups=('tde-extra')
 depends=('tde-tdebase')
 makedepends=('pkgconfig' 'automake')
-#provides=('tdmtheme')
-#conflicts=('tdmtheme')
-#replaces=('tdmtheme')
+#provides=('tdesudo')
+#conflicts=('tdesudo')
+#replaces=('tdesudo')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/tdmtheme-R${pkgver}.tar.bz2")
-md5sums=('fce3b57a787a49ca1d3dc96a420ceb5d')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/tdesudo-R${pkgver}.tar.bz2")
+md5sums=('2f39549075ca9025f1028cb72c99312c')
 # install=''
 
 build() {

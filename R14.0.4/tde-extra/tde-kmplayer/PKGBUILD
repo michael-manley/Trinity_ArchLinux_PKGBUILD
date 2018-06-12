@@ -1,21 +1,22 @@
-# Contributor: e1z0 <justinas at eofnet dot lt>
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: David C. Rankin <drankinatty at gmail dot com>
 
-pkgname=twin-style-crystal
+pkgname=tde-kmplayer
 pkgver=14.0.4
 pkgrel=1
 pkgdesc="gtk qt engine"
 arch=('i686' 'x86_64')
-url='http://scm.trinitydesktop.org/scm/git/applications/twin-style-crystal'
+url='http://scm.trinitydesktop.org/scm/git/applications/kmplayer'
 license=('GPL')
-groups=('tde-base')
-depends=('tde-tdebase')
-makedepends=('pkgconfig' 'automake')
-#provides=('twin-style-crystal')
-#conflicts=('twin-style-crystal')
-#replaces=('twin-style-crystal')
+groups=('tde-extra')
+depends=('tde-tdebase' 'dbus-glib')
+makedepends=('pkgconfig' 'cmake' 'mplayer')
+#provides=('kmplayer')
+#conflicts=('kmplayer')
+#replaces=('kmplayer')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/twin-style-crystal-R${pkgver}.tar.bz2")
-md5sums=('44c98ee5565b64b3bb289588fa04cea3')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/kmplayer-R${pkgver}.tar.bz2")
+md5sums=('063ec0c333d37f756e889bbc0ab09822')
 # install=''
 
 build() {
@@ -23,8 +24,7 @@ build() {
   # Source the QT and TDE profile
   [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
-  # old ruby1.8 path
-  export PATH=/opt/ruby1.8/bin:$PATH
+
   ## Generate config files and update with autoreconf
   cd ${srcdir}/applications/${pkgname}
 
