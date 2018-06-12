@@ -30,6 +30,7 @@ makedepends=('autoconf'
 	     'pkgconfig'
 	     'libxkbfile'
 	     'smbclient'
+             'rpcsvc-proto'
 	     'xorg-bdftopcf'
              'xscreensaver')
 optdepends=('desktop-file-utils: Command line utilities for working with desktop entries'
@@ -58,7 +59,8 @@ source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdebas
         'trinity.desktop'
         'tdm.service'
         'xsession.patch'
-        'openssl.patch')
+        'openssl.patch'
+	'rpcfix.patch')
 
 md5sums=('dae53b392323cd001f007789d38c1d8f'
          '2dac928c6177b9fa0f4e751d7dddc62e'
@@ -69,7 +71,8 @@ md5sums=('dae53b392323cd001f007789d38c1d8f'
          '091f4e1045867bbbc15bf323731aae82'
          'e0ddb96fc86bd081ce691744a68d2f9a'
          'a761787a4d2f917389ced194552addca'
-         '2e2d8740dc1333f4d1429db940a79a1c')
+         '2e2d8740dc1333f4d1429db940a79a1c'
+         'SKIP')
 
 build() {
   cd ${srcdir}/${pkgname#*-}
@@ -78,6 +81,9 @@ build() {
   # Source the QT and TDE profile
   [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
+
+  msg "Patching to use new rpc/rpc.h include path"
+  patch -p1 -i ${srcdir}/rpcfix.patch
 
   msg "Patching for OpenSSL-1.0 Support"
   patch -p1 -i ${srcdir}/openssl.patch

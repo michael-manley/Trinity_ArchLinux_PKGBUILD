@@ -1,22 +1,27 @@
-# Contributor: e1z0 <justinas at eofnet dot lt>
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: David C. Rankin <drankinatty at gmail dot com>
 
-pkgname=tde-tdewebdev
+pkgname=tde-tdenetwork
 pkgver=14.0.4
 pkgrel=1
 arch=('i686' 'x86_64')
-url='http://scm.trinitydesktop.org/scm/git/tdewebdev'
+url='http://scm.trinitydesktop.org/scm/git/tdenetwork'
 license=('GPL')
-groups=('tde-base')
-pkgdesc="Trinity Web Developer Tools"
-depends=('tde-tdebase')
+groups=('tde-extra')
+pkgdesc="Trinity Desktop Network Components"
+depends=('tde-tdebase' 'speex' 'wireless_tools' 'wpa_supplicant')
 makedepends=('pkgconfig' 'cmake')
-provides=('tdewebdev')
-conflicts=('trinity-tdewebdev' 'trinity-kdewebdev')
-replaces=('trinity-tdewebdev')
+provides=('tdenetwork')
+conflicts=('trinity-tdenetwork' 'trinity-kdenetwork')
+replaces=('trinity-tdenetwork')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdewebdev-R${pkgver}.tar.bz2")
-md5sums=('3fdf3b1386f1be097184e3335c60456e')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdenetwork-R${pkgver}.tar.bz2")
+md5sums=('159618e4443a80ee2ac985aece85b807')
 # install=''
+
+prepare() {
+ patch -Np1 -i "${srcdir}/../kautoconfig.patch"
+}
 
 build() {
    msg "Setting PATH, CMAKE and Trinity Environment variables"

@@ -1,15 +1,15 @@
 # Maintainer: Michael Manley <mmanley@nasutek.com>
 # Contributor: David C. Rankin <drankinatty at gmail dot com>
 
-pkgname=tde-libkdcraw
+pkgname=tde-libkexiv2
 pkgver=14.0.4
 pkgrel=1
 pkgdesc="The EXIV2 Library interface for TDE kipi-plugins"
 arch=('i686' 'x86_64')
 url="http://scm.trinitydesktop.org/scm/git/${pkgname#*-}"
 license=('GPL')
-groups=('tde-base')
-depends=('tde-tdebase' 'libraw' 'lcms')
+groups=('tde-libs')
+depends=('tde-tdebase' 'exiv2')
 makedepends=('pkgconfig' 'autoconf' 'imake')
 optdepends=()
 provides=("${pkgname#*-}")
@@ -17,9 +17,8 @@ conflicts=("trinity-${pkgname#*-}")
 replaces=("trinity-${pkgname#*-}")
 options=('staticlibs' 'libtool' '!emptydirs')
 # install='pkgname.install'
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/libraries/libkdcraw-R${pkgver}.tar.bz2")
-md5sums=('8ba1d417f43d1ce20950314b033d75f0')
-
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/libraries/libkexiv2-R${pkgver}.tar.bz2")
+md5sums=('d0dfcc8fab93d4dc30d8388e0224fe75')
 
 build() {
 
@@ -38,12 +37,6 @@ build() {
   cp /usr/share/aclocal/libtool.m4 ./admin/libtool.m4.in
   cp /usr/share/libtool/build-aux/ltmain.sh ./admin/ltmain.sh
 
-  msg "Running autotools, libtoolize, aclocal, autoupdate, autoconf, automake, autoreconf"
-  aclocal
-  autoupdate
-  autoconf
-  automake --add-missing
-
   msg "Running make -f admin/Makefile.common ...."
   make -f admin/Makefile.common
 
@@ -59,9 +52,9 @@ build() {
     --enable-debug=full \
     --enable-closure
 
-  ## make $NUMJOBS
   msg "Building - ${pkgname}..."
   make $NUMJOBS
+
 }
 
 package() {

@@ -1,0 +1,21 @@
+--- tdebase-orig/CMakeLists.txt      2016-11-06 21:13:18.000000000 -0800
++++ tdebase/CMakeLists.txt      2018-06-11 20:56:07.988765200 -0700
+@@ -23,6 +23,8 @@
+
+ ##### include essential cmake modules ###########
+
++include_directories( /usr/include/tirpc ) # FIX For ArchLinux
++
+ include( FindPkgConfig )
+ include( CheckIncludeFile )
+ include( CheckIncludeFiles )
+--- tdebase-orig/tdeioslave/nfs/CMakeLists.txt 2016-11-06 21:13:18.000000000 -0800
++++ tdebase/tdeioslave/nfs/CMakeLists.txt      2018-06-11 21:22:40.661414000 -0700
+@@ -41,6 +41,6 @@
+
+ tde_add_kpart( ${target} AUTOMOC
+   SOURCES tdeio_nfs.cpp mount_xdr.c nfs_prot_xdr.c
+-  LINK tdeio-shared
++  LINK tdeio-shared tirpc
+   DESTINATION ${PLUGIN_INSTALL_DIR}
+ )
