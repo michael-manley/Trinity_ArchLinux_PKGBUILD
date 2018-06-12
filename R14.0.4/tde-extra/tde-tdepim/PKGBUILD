@@ -14,14 +14,19 @@ makedepends=('pkgconfig' 'cmake' )
 provides=('tdepim')
 replaces=('trinity-tdepim')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdepim-R${pkgver}.tar.bz2")
-md5sums=('3b7d7972d647578feffeff7cb19d6701')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdepim-R${pkgver}.tar.bz2"
+	"libicalfix.patch")
+md5sums=('3b7d7972d647578feffeff7cb19d6701' 'SKIP')
 
 build() {
   msg "Setting PATH, CMAKE and Trinity Environment variables"
   # Source the QT and TDE profile
   [ "$QTDIR" = "" ] && . /usr/share/trinity/srcldr/tqt3.sh
   [ "$TDEDIR" = "" ] && . /usr/share/trinity/srcldr/trinity.sh
+  
+  msg "Patching for newer libical library"
+  cd ${srcdir}/${pkgname#*-}
+  patch -p1 -i ${srcdir}/libicalfix.patch
 
   cd $srcdir
 
