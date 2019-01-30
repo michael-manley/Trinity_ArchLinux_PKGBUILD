@@ -15,7 +15,7 @@ makedepends=('pkgconfig' 'cmake')
 #replaces=('tde-systemsettings')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/tde-systemsettings-R${pkgver}.tar.bz2")
-md5sums=('09fd8a00fcc5363cee94aefb8ce436ba')
+md5sums=('2a59f87b39bd63b8ae30eca38763a3ec')
 # install=''
 
 build() {

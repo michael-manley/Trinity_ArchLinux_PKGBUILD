@@ -16,7 +16,7 @@ provides=('avahi-tqt')
 replaces=('trinity-avahi-tqt')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/avahi-tqt-R${pkgver}.tar.bz2")
-md5sums=('04589946b4f5c1dc7804cae1624afd32')
+md5sums=('3b296fb5e6131c14dec4f299b0c9d1d6')
 
 build() {
   msg "Setting PATH and Trinity Environment variables"

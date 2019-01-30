@@ -16,7 +16,7 @@ makedepends=('pkgconfig' 'cmake')
 provides=('dbus-tqt')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/dbus-tqt-R${pkgver}.tar.bz2")
-md5sums=('7508ac69693b77cd87725a0500d1333f')
+md5sums=('619e65a35e2e750900f1d10931b6698c')
 install='trinity-dbus-tqt.install'
 
 build() {

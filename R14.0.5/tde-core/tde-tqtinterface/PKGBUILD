@@ -24,7 +24,7 @@ source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/depend
         'trinity.profile.sh'
         'trinity.profile.csh')
 
-md5sums=('51b62729dbe147f18267d5f54b01896a'
+md5sums=('b1d086bbcc0cd62dfbb5833ff0af71a2'
          'c15745c944d98cb7c4cb553f0ca421d4'
          '72c6c4fb492c1f4b4741fad1dd70d62f'
          '915e14c6264a6b9c46a6a20b16cdcd06')

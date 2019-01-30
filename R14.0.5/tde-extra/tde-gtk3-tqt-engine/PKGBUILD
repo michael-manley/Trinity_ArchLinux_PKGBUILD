@@ -16,7 +16,7 @@ makedepends=('pkgconfig' 'cmake')
 #replaces=('gtk3-tqt-engine')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/gtk3-tqt-engine-R${pkgver}.tar.bz2")
-md5sums=('a093efa03eb449df22534fa5bfc0e6e5')
+md5sums=('76b078e7afcd6a8e683efa924fcfad2e')
 # install=''
 
 build() {

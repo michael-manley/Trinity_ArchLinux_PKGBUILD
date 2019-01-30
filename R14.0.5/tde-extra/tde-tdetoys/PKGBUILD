@@ -15,7 +15,7 @@ conflicts=('trinity-tdetoys' 'trinity-kdetoys')
 replaces=('trinity-tdetoys')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdetoys-R${pkgver}.tar.bz2")
-md5sums=('f52beeca832344545d9138ba0dd3cc8f')
+md5sums=('bc2324f104aa0c9db1caf2e8419b76fb')
 # install=''
 
 build() {

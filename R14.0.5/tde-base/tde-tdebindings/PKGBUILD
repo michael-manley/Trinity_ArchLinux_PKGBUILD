@@ -16,7 +16,7 @@ makedepends=('pkgconfig' 'cmake' 'python2')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdebindings-R${pkgver}.tar.bz2" 
         "tdebindings-perl-fix.patch")
-md5sums=('bbb06cfe4a73054d7735980dfc279f20'
+md5sums=('6ec6d2f34dfd4d7652f62807fdc269ea'
          'ce7c6b17f180f08afae5b123465c3952')
 # install=''
 

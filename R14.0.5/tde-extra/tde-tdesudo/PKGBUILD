@@ -15,7 +15,7 @@ makedepends=('pkgconfig' 'automake')
 #replaces=('tdesudo')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/tdesudo-R${pkgver}.tar.bz2")
-md5sums=('2f39549075ca9025f1028cb72c99312c')
+md5sums=('8f86b7b497a9575979b27fd2911b0106')
 # install=''
 
 build() {

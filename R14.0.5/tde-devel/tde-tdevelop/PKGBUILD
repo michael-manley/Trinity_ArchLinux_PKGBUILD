@@ -17,7 +17,7 @@ replaces=('trinity-tdevelop')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdevelop-R${pkgver}.tar.bz2"
         "fix_tqt_error.patch")
-md5sums=('173c677acbbf44155b4f242e69174523'
+md5sums=('ddc6fe1c7adc3c6284db806a8ea96e76'
          'da7c0a4793e98351d9f2d4122d3d2626')
 # install=''
 

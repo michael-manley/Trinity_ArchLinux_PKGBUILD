@@ -23,7 +23,7 @@ makedepends=('libcups'
 	'xorg-xrandr'
 	'libxft')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/tqt3-R${pkgver}.tar.bz2")
-md5sums=('f2d8cf563c0ef1323b895df8f2a51497')
+md5sums=('26b4a59e1f2c24807658503e5ed6ab27')
 
 _prefix="/opt/trinity/tqt3"
 

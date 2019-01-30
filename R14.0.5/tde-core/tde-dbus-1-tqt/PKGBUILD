@@ -18,7 +18,7 @@ conflicts=('trinity-dbus-1-tqt')
 replaces=('trinity-dbus-1-tqt' 'trinity-dbus-1-qt3' 'dbus-1-qt3' 'tde-dbus-tqt-1')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/dbus-1-tqt-R${pkgver}.tar.bz2")
-md5sums=('202b9752cf7bdfd4542ae36e95248233')
+md5sums=('727b960ac3fbb5bf92d53215e70f58a6')
 install='trinity-dbus-1-tqt.install'
 
 build() {

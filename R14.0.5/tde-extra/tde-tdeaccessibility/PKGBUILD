@@ -17,7 +17,7 @@ replaces=("trinity-${pkgname#*-}")
 options=('staticlibs' 'libtool' '!emptydirs')
 # install='pkgname.install'
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdeaccessibility-R${pkgver}.tar.bz2")
-md5sums=('72fb009dde9eb870d9968a1aa12e8b59')
+md5sums=('e6b46859ddc8bb22e6b4e5cd21f989e1')
 
 build() {
 

@@ -60,9 +60,10 @@ source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdebas
         'tdm.service'
         'xsession.patch'
         'stat.patch'
-	      'rpcfix.patch')
+        'rpcfix.patch'
+        'config_fix.patch')
 
-md5sums=('dae53b392323cd001f007789d38c1d8f'
+md5sums=('aed6cd45278faa17b9a448b34cbb5127'
          '2dac928c6177b9fa0f4e751d7dddc62e'
          '81eb97f16b66a2152e592358727a30c7'
          '18e8d01124b19f7df2937c06e177bf7f'
@@ -71,8 +72,9 @@ md5sums=('dae53b392323cd001f007789d38c1d8f'
          '091f4e1045867bbbc15bf323731aae82'
          'e0ddb96fc86bd081ce691744a68d2f9a'
          'a761787a4d2f917389ced194552addca'
-         'xxx'
-         'xxx')
+         '9ed22bf950f1b8c722aad0078e270774'
+         '409bccfb0632c4eda71130e744676b9d'
+         'b75b47ff872e80ef2853389237665e9f')
 
 build() {
   cd ${srcdir}/${pkgname#*-}
@@ -87,7 +89,10 @@ build() {
 
   msg "Patching to not use linux/stat.h"
   patch -p1 -i ${srcdir}/stat.patch
-  
+ 
+  msg "Patching CMakeLists.txt to fix config bug"
+  patch -p1 -i ${srcdir}/config_fix.patch
+
   msg "Creating out-of-source build directory: ${srcdir}/build"
   mkdir -p ../build
   cd ../build

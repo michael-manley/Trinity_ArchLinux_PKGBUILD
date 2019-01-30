@@ -32,7 +32,7 @@ conflicts=('kdemod3-arts' 'arts')
 replaces=('trinity-arts')
 options=('staticlibs' 'libtool' '!emptydirs')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/arts-R${pkgver}.tar.bz2")
-md5sums=('c27b72aee60c7aac6e415fbc30d387e2')
+md5sums=('2632ad0a5045b24a5f01ed1aebcf2fa8')
 install='tde-arts.install'
 
 build() {

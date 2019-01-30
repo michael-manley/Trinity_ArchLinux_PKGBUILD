@@ -15,7 +15,7 @@ makedepends=('pkgconfig' 'cmake')
 #replaces=('tde-amarok')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/amarok-R${pkgver}.tar.bz2")
-md5sums=('013dc9a1737e92d02b2c7402784bc8e8')
+md5sums=('0351b0d4ee54ae266e2a3ec47cd3accf')
 # install=''
 
 build() {

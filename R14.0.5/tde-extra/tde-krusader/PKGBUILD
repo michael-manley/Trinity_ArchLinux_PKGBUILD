@@ -15,7 +15,7 @@ makedepends=('pkgconfig' 'automake')
 #replaces=('krusader')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/krusader-R${pkgver}.tar.bz2")
-md5sums=('c7ade694eca995245304f20cd2a9887c')
+md5sums=('0787b4b4271f7a107b4d397db621b145')
 # install=''
 
 build() {

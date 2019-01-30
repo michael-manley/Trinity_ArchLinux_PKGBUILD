@@ -15,7 +15,7 @@ makedepends=('pkgconfig' 'automake')
 #replaces=('tdmtheme')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/tdmtheme-R${pkgver}.tar.bz2")
-md5sums=('fce3b57a787a49ca1d3dc96a420ceb5d')
+md5sums=('dc202459e80fde7b469ef1cfb684803c')
 # install=''
 
 build() {

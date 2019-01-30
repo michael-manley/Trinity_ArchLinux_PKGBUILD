@@ -15,7 +15,7 @@ makedepends=('pkgconfig' 'cmake')
 #replaces=('tde-style-qtcurve')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/tde-style-qtcurve-R${pkgver}.tar.bz2")
-md5sums=('54d6473ac61a1d26ef461e15f022afee')
+md5sums=('43e7e865807d966890663e511837b616')
 # install=''
 
 build() {

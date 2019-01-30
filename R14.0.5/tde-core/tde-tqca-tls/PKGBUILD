@@ -18,7 +18,7 @@ conflicts=('trinity-tqca-tls')
 replaces=('trinity-tqca-tls')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/tqca-tls-R${pkgver}.tar.bz2")
-md5sums=('f2b3a28ab6e4bc2ebc0fa98c9997086b')
+md5sums=('21dd2d8680bdfccbbb68616682d5e898')
 
 build() {
   msg "Setting PATH and Trinity Environment variables"

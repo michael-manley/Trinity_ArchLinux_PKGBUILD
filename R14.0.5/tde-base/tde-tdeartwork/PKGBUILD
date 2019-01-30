@@ -17,7 +17,7 @@ conflicts=('trinity-tdeartwork' 'trinity-kdeartwork')
 replaces=('trinity-tdeartwork')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdeartwork-R${pkgver}.tar.bz2")
-md5sums=('c9935804a3dd201deaa8960e922a24d3')
+md5sums=('292af8c2fa2ad695f1dd00cd1ecdc5f6')
 # install=''
 
 build() {

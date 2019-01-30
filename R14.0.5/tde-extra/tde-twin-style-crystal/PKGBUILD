@@ -15,7 +15,7 @@ makedepends=('pkgconfig' 'automake')
 #replaces=('twin-style-crystal')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/twin-style-crystal-R${pkgver}.tar.bz2")
-md5sums=('44c98ee5565b64b3bb289588fa04cea3')
+md5sums=('51983ea2543b9ed886b4357bc6cfec60')
 # install=''
 
 build() {

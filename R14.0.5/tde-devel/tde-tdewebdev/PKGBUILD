@@ -15,7 +15,7 @@ conflicts=('trinity-tdewebdev' 'trinity-kdewebdev')
 replaces=('trinity-tdewebdev')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdewebdev-R${pkgver}.tar.bz2")
-md5sums=('3fdf3b1386f1be097184e3335c60456e')
+md5sums=('a51df50c2a897883d3557421b6949620')
 # install=''
 
 build() {

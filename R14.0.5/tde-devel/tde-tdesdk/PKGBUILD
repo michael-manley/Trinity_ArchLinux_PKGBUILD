@@ -16,7 +16,7 @@ conflicts=('trinity-tdesdk' 'trinity-kdesdk')
 replaces=('trinity-tdesdk')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdesdk-R${pkgver}.tar.bz2")
-md5sums=('dfdaa3dd27280146197f706b88b38cc3')
+md5sums=('3821592afede20daf82ed2eef597955b')
 # install=''
 
 #prepare() {

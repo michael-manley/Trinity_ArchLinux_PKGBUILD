@@ -15,7 +15,7 @@ conflicts=('trinity-tdeaddons' 'trinity-kdeaddons')
 replaces=('trinity-tdeaddons')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdeaddons-R${pkgver}.tar.bz2")
-md5sums=('310edd5de1c70ec6a5380eb3128ac7e4')
+md5sums=('b730d4d465d867755a19f77e6efc9e88')
 # install=''
 
 build() {

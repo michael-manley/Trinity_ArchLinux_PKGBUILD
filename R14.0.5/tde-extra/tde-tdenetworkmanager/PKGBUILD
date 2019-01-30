@@ -15,7 +15,7 @@ makedepends=('pkgconfig' 'cmake')
 #replaces=('tdenetworkmanager')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/tdenetworkmanager-R${pkgver}.tar.bz2")
-md5sums=('d18e13ec9a3c2b005eeff02cb4923921')
+md5sums=('28f6255e6407330573f8a4af57e41a65')
 # install=''
 
 build() {

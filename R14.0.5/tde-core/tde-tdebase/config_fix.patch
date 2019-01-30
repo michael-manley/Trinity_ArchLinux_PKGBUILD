@@ -1,0 +1,13 @@
+diff -Naur tdebase-orig/tdm/kfrontend/CMakeLists.txt tdebase/tdm/kfrontend/CMakeLists.txt
+--- tdebase-orig/tdm/kfrontend/CMakeLists.txt	2018-08-25 10:01:35.000000000 +0000
++++ tdebase/tdm/kfrontend/CMakeLists.txt	2019-01-30 19:27:06.000000000 +0000
+@@ -48,7 +48,7 @@
+ 
+ ##### tdm_config (executable) ###################
+ 
+-set_property( SOURCE tdm_config.c APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/config.ci )
++set_property( SOURCE tdm_config.c tdm_greet.c APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/config.ci )
+ 
+ tde_add_executable( tdm_config
+   SOURCES tdm_config.c
+

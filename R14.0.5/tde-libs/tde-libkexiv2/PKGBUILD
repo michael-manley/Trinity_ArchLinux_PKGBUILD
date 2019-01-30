@@ -18,7 +18,7 @@ replaces=("trinity-${pkgname#*-}")
 options=('staticlibs' 'libtool' '!emptydirs')
 # install='pkgname.install'
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/libraries/libkexiv2-R${pkgver}.tar.bz2")
-md5sums=('d0dfcc8fab93d4dc30d8388e0224fe75')
+md5sums=('c6fbcf0c85099e9f689e6af69507b860')
 
 build() {
 

@@ -16,7 +16,7 @@ makedepends=('pkgconfig' 'cmake' 'mplayer')
 #replaces=('kmplayer')
 options=('staticlibs' 'libtool' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/kmplayer-R${pkgver}.tar.bz2")
-md5sums=('063ec0c333d37f756e889bbc0ab09822')
+md5sums=('968e2116b333ea646ce00fd2ab2038a8')
 # install=''
 
 build() {

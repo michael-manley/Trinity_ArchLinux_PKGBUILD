@@ -18,7 +18,7 @@ replaces=()
 options=('staticlibs' 'libtool' '!strip')
 install=
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/dependencies/libart-lgpl-R${pkgver}.tar.bz2")
-md5sums=('531a60603b393447de969cd89cd97387')
+md5sums=('89ee9f3901fdd8622b24e789638818e6')
 
 build() {
   cd $srcdir/dependencies/${pkgname#*-}

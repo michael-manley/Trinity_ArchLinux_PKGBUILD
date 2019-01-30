@@ -38,7 +38,7 @@ replaces=('trinity-kdelibs' 'trinity-tdelibs')
 options=('staticlibs' 'libtool' '!makeflags' '!strip')
 source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdelibs-R${pkgver}.tar.bz2")
 
-md5sums=('7d55a106566f2772c5627154b1cc8765')
+md5sums=('03e4bdd2f36d1f5df1427b731a7c75ae')
 
 install='trinity-tdelibs.install'
 

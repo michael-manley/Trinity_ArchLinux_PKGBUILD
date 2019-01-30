@@ -62,4 +62,4 @@ package() {
   cd "$srcdir/build"
   make -j1 DESTDIR="$pkgdir" install
 }
-md5sums=('fbd073a9f473d6e8492ee0d644ce6ee6')
+md5sums=('5006a20e844e3d8dc2ba8dbc41487990')
