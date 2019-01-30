@@ -1,0 +1,21 @@
+post_install() {
+   ldconfig &> /dev/null
+   [ "$TDEDIR" = "" ] && . /etc/profile.d/trinity.sh
+   [ -x "${TDEDIR}/bin/mkpamserv" ] && "${TDEDIR}/bin/mkpamserv" trinity || \
+   echo "Warning: unable to run mkpamserv trinity, you will need to manually confirure pam"
+   echo "Please remember that you can change your kdesu backend from su to sudo"
+   echo "by adding following lines to your ~/.tde/share/kdesurc or to the"
+   echo "$TDEDIR/share/config/kdesurc:"
+   echo "[super-user-command]"
+   echo "super-user-command=sudo"
+}
+
+post_upgrade() {
+   post_install
+}
+
+post_remove() {
+   ldconfig &> /dev/null
+   rm /etc/pam.d/trinity
+}
+

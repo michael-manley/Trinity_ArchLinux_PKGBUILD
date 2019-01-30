@@ -1,0 +1,790 @@
+[1m[32m==>(B[m[1m Setting PATH, CMAKE and Trinity Environment variables(B[m
+[1m[32m==>(B[m[1m Creating out-of-source build directory: /tmp/trinity/tde-core/tde-tdebase/src/build(B[m
+[1m[32m==>(B[m[1m Starting cmake...(B[m
+-- The C compiler identification is GNU 8.2.1
+-- The CXX compiler identification is GNU 8.2.1
+-- Check for working C compiler: /usr/sbin/cc
+-- Check for working C compiler: /usr/sbin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/sbin/c++
+-- Check for working CXX compiler: /usr/sbin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found PkgConfig: /usr/sbin/pkg-config (found version "1.6.0") 
+CMake Deprecation Warning at cmake/modules/TDEMacros.cmake:119 (cmake_policy):
+  The OLD behavior for policy CMP0026 will be removed from a future version
+  of CMake.
+
+  The cmake-policies(7) manual explains that the OLD behaviors of all
+  policies are deprecated and that a policy should be set to OLD only under
+  specific short-term circumstances.  Projects should be ported to the NEW
+  behavior and not rely on setting a policy to OLD.
+Call Stack (most recent call first):
+  CMakeLists.txt:42 (include)
+
+
+-- Detected x86_64 CPU architecture
+-- Performing Test HAVE_PIE_SUPPORT
+-- Performing Test HAVE_PIE_SUPPORT - Success
+-- Check if the system is big endian
+-- Searching 16 bit integer
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of unsigned short
+-- Check size of unsigned short - done
+-- Using unsigned short
+-- Check if the system is big endian - little endian
+-- Checking for one of the modules 'tqt'
+--   tmoc path: /usr/bin/tmoc
+--   moc path: /opt/trinity/tqt3/bin/moc
+--   uic path: /opt/trinity/tqt3/bin/tquic
+--   tqt-replace path: /usr/bin/tqt-replace
+-- Performing Test HAVE_USABLE_TQT
+-- Performing Test HAVE_USABLE_TQT - Success
+-- checking for 'TDE'
+-- Checking for one of the modules 'tqt'
+--   found 'TDE', version 14.0.5
+-- Looking for dlopen in dl
+-- Looking for dlopen in dl - found
+-- Looking for termios.h
+-- Looking for termios.h - found
+-- Looking for sys/bitypes.h
+-- Looking for sys/bitypes.h - found
+-- Looking for sys/ioctl.h
+-- Looking for sys/ioctl.h - found
+-- Looking for pam_start in pam
+-- Looking for pam_start in pam - found
+-- Looking for security/pam_appl.h
+-- Looking for security/pam_appl.h - found
+-- Looking for crypt in crypt
+-- Looking for crypt in crypt - found
+-- Performing Test HAVE_TDEHWLIB
+-- Performing Test HAVE_TDEHWLIB - Success
+-- Checking for one of the modules 'udev'
+-- Performing Test HAVE_GCC_VISIBILITY
+-- Performing Test HAVE_GCC_VISIBILITY - Success
+-- Checking for one of the modules 'xrender'
+-- Checking for one of the modules 'xrandr'
+-- Checking for one of the modules 'xinerama'
+-- Checking for one of the modules 'xcursor'
+-- Checking for one of the modules 'xcomposite'
+-- Checking for one of the modules 'xdamage'
+-- Checking for one of the modules 'xext'
+-- Looking for XSyncCreateFence
+-- Looking for XSyncCreateFence - found
+-- Checking for one of the modules 'xfixes'
+-- Checking for one of the modules 'libpcre'
+-- Checking for one of the modules 'xtst'
+-- Looking for XScreenSaverQueryInfo in Xss
+-- Looking for XScreenSaverQueryInfo in Xss - found
+-- Checking for one of the modules 'xscrnsaver'
+-- Looking for X11/extensions/scrnsaver.h
+-- Looking for X11/extensions/scrnsaver.h - found
+-- Found SCREENSAVER_CONFIG_DIR </usr/share/xscreensaver/config/>
+-- Checking for one of the modules 'gl'
+-- Looking for glXChooseVisual
+-- Looking for glXChooseVisual - found
+-- Checking for one of the modules 'glu'
+-- Checking for one of the modules 'glib-2.0'
+-- Looking for getifaddrs
+-- Looking for getifaddrs - found
+-- Looking for X11/XKBlib.h
+-- Looking for X11/XKBlib.h - found
+-- Looking for XkbLockModifiers in X11
+-- Looking for XkbLockModifiers in X11 - found
+-- Looking for XkbSetPerClientControls in X11
+-- Looking for XkbSetPerClientControls in X11 - found
+-- Checking for one of the modules 'arts'
+-- Checking for one of the modules 'libart-2.0'
+-- Checking for one of the modules 'dbus-1'
+-- Checking for one of the modules 'dbus-1-tqt'
+-- Check size of long long
+-- Check size of long long - done
+-- Looking for sys/statvfs.h
+-- Looking for sys/statvfs.h - found
+-- Looking for getopt.h
+-- Looking for getopt.h - found
+-- Checking for one of the modules 'freetype2'
+-- Checking for one of the modules 'fontconfig'
+-- Checking for one of the modules 'xft'
+-- Checking for one of the modules 'libraw1394'
+-- Performing Test HAVE_DPMS
+-- Performing Test HAVE_DPMS - Success
+-- Checking for one of the modules 'openssl'
+-- Looking for sys/sockio.h
+-- Looking for sys/sockio.h - not found
+-- Looking for getnameinfo
+-- Looking for getnameinfo - found
+-- Performing Test HAVE_STRUCT_SOCKADDR_SA_LEN
+-- Performing Test HAVE_STRUCT_SOCKADDR_SA_LEN - Failed
+-- Looking for sasl/sasl.h
+-- Looking for sasl/sasl.h - found
+-- Looking for sasl_client_init in sasl2
+-- Looking for sasl_client_init in sasl2 - found
+-- Looking for stropts.h
+-- Looking for stropts.h - found
+-- Looking for libutil.h
+-- Looking for libutil.h - not found
+-- Looking for util.h
+-- Looking for util.h - not found
+-- Looking for pty.h
+-- Looking for pty.h - found
+-- Performing Test HAVE_OPENPTY
+-- Performing Test HAVE_OPENPTY - Success
+-- Looking for unistd.h
+-- Looking for unistd.h - found
+-- Looking for string.h
+-- Looking for string.h - found
+-- Checking for one of the modules 'OpenEXR'
+-- Looking for ldap.h
+-- Looking for ldap.h - found
+-- Looking for ldap_initialize in ldap
+-- Looking for ldap_initialize in ldap - found
+-- Checking for one of the modules 'smbclient'
+-- Looking for smbc_new_context in smbclient
+-- Looking for smbc_new_context in smbclient - found
+-- Looking for sigset
+-- Looking for sigset - found
+-- Looking for sigaction
+-- Looking for sigaction - found
+-- Performing Test HAVE_STRUCT_UCRED
+-- Performing Test HAVE_STRUCT_UCRED - Success
+-- Performing Test HAVE_NOGROUP
+-- Performing Test HAVE_NOGROUP - Failed
+-- Performing Test HAVE_NOBODY
+-- Performing Test HAVE_NOBODY - Success
+-- Looking for getpeereid
+-- Looking for getpeereid - not found
+-- Looking for sys/select.h
+-- Looking for sys/select.h - found
+-- Looking for sys/wait.h
+-- Looking for sys/wait.h - found
+-- Looking for getdomainname
+-- Looking for getdomainname - found
+-- Looking for initgroups
+-- Looking for initgroups - found
+-- Looking for mkstemp
+-- Looking for mkstemp - found
+-- Looking for setproctitle
+-- Looking for setproctitle - not found
+-- Looking for sysinfo
+-- Looking for sysinfo - found
+-- Looking for strnlen
+-- Looking for strnlen - found
+-- Looking for setusercontext
+-- Looking for setusercontext - not found
+-- Looking for getusershell
+-- Looking for getusershell - found
+-- Looking for login_getclass
+-- Looking for login_getclass - not found
+-- Looking for auth_timeok
+-- Looking for auth_timeok - not found
+-- Looking for lastlog.h
+-- Looking for lastlog.h - found
+-- Looking for termio.h
+-- Looking for termio.h - found
+-- Performing Test HAVE_STRUCT_SOCKADDR_IN_SIN_LEN
+-- Performing Test HAVE_STRUCT_SOCKADDR_IN_SIN_LEN - Failed
+-- Performing Test HAVE_STRUCT_PASSWD_PW_EXPIRE
+-- Performing Test HAVE_STRUCT_PASSWD_PW_EXPIRE - Failed
+-- Performing Test HAVE_STRUCT_UTMP_UT_USER
+-- Performing Test HAVE_STRUCT_UTMP_UT_USER - Success
+-- Performing Test HAVE_SETLOGIN
+-- Performing Test HAVE_SETLOGIN - Failed
+-- Performing Test HONORS_SOCKET_PERMS
+-- Performing Test HONORS_SOCKET_PERMS - Failed
+-- Looking for getutent
+-- Looking for getutent - found
+-- Looking for arc4random
+-- Looking for arc4random - not found
+-- Checking for one of the modules 'xau'
+-- Checking for one of the modules 'xdmcp'
+-- Looking for _IceTransNoListen in ICE
+-- Looking for _IceTransNoListen in ICE - found
+-- Looking for htsearch
+-- Looking for htsearch - /usr/sbin/htsearch
+-- Performing Test COVARIANT_RETURN
+-- Performing Test COVARIANT_RETURN - Success
+-- Looking for sensors/sensors.h
+-- Looking for sensors/sensors.h - found
+-- Looking for sensors_init in sensors
+-- Looking for sensors_init in sensors - found
+-- Checking for one of the modules 'xkbfile'
+-- Configuring done
+-- Generating done
+CMake Warning:
+  Manually-specified variables were not used by the project:
+
+    WITH_XDAMAGE
+    WITH_XEXT
+
+
+-- Build files have been written to: /tmp/trinity/tde-core/tde-tdebase/src/build
+[  0%] Generating kgreet_pam.moc
+Scanning dependencies of target kgreet_pam-module
+[  0%] Building CXX object tdmlib/CMakeFiles/kgreet_pam-module.dir/kgreet_pam.cpp.o
+[  0%] Linking CXX shared module kgreet_pam.so
+[  0%] Built target kgreet_pam-module
+Scanning dependencies of target dmctl-static
+[  0%] Building CXX object tdmlib/CMakeFiles/dmctl-static.dir/dmctl.cpp.o
+[  0%] Linking CXX static library libdmctl.a
+[  0%] Built target dmctl-static
+[  0%] Generating kgreet_classic.moc
+Scanning dependencies of target kgreet_classic-module
+[  0%] Building CXX object tdmlib/CMakeFiles/kgreet_classic-module.dir/kgreet_classic.cpp.o
+[  1%] Linking CXX shared module kgreet_classic.so
+[  1%] Built target kgreet_classic-module
+[  1%] Generating kgreet_winbind.moc
+Scanning dependencies of target kgreet_winbind-module
+[  1%] Building CXX object tdmlib/CMakeFiles/kgreet_winbind-module.dir/kgreet_winbind.cpp.o
+[  1%] Linking CXX shared module kgreet_winbind.so
+[  1%] Built target kgreet_winbind-module
+Scanning dependencies of target tdmtsak
+[  1%] Building CXX object tdmlib/CMakeFiles/tdmtsak.dir/tdmtsak.cpp.o
+[  1%] Linking CXX executable tdmtsak
+[  1%] Built target tdmtsak
+Scanning dependencies of target tdeinit_displayconfig
+[  1%] Building CXX object tdeinit/CMakeFiles/tdeinit_displayconfig.dir/displayconfig.cpp.o
+[  1%] Linking CXX executable tdeinit_displayconfig
+[  1%] Built target tdeinit_displayconfig
+Scanning dependencies of target tdeinit_phase1
+[  1%] Building CXX object tdeinit/CMakeFiles/tdeinit_phase1.dir/phase1.cpp.o
+[  2%] Linking CXX executable tdeinit_phase1
+[  2%] Built target tdeinit_phase1
+Scanning dependencies of target khelpcenter-adminguide-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target khelpcenter-adminguide-en-handbook
+Scanning dependencies of target khelpcenter-faq-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target khelpcenter-faq-en-handbook
+Scanning dependencies of target khelpcenter-glossary-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target khelpcenter-glossary-en-handbook
+Scanning dependencies of target khelpcenter-helpnotfound-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target khelpcenter-helpnotfound-en-handbook
+Scanning dependencies of target kate-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kate-en-handbook
+Scanning dependencies of target kcontrol-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-en-handbook
+Scanning dependencies of target kcontrol-arts-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-arts-en-handbook
+Scanning dependencies of target kcontrol-background-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-background-en-handbook
+Scanning dependencies of target kcontrol-bell-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-bell-en-handbook
+Scanning dependencies of target kcontrol-cache-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-cache-en-handbook
+Scanning dependencies of target kcontrol-cdinfo-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-cdinfo-en-handbook
+Scanning dependencies of target kcontrol-clock-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-clock-en-handbook
+Scanning dependencies of target kcontrol-colors-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-colors-en-handbook
+Scanning dependencies of target kcontrol-componentchooser-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-componentchooser-en-handbook
+Scanning dependencies of target kcontrol-cookies-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-cookies-en-handbook
+Scanning dependencies of target kcontrol-crypto-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-crypto-en-handbook
+Scanning dependencies of target kcontrol-desktop-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-desktop-en-handbook
+Scanning dependencies of target kcontrol-desktopbehavior-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-desktopbehavior-en-handbook
+Scanning dependencies of target kcontrol-devices-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-devices-en-handbook
+Scanning dependencies of target kcontrol-display-en-handbook
+[  2%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  2%] Built target kcontrol-display-en-handbook
+Scanning dependencies of target kcontrol-displayconfig-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-displayconfig-en-handbook
+Scanning dependencies of target kcontrol-dma-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-dma-en-handbook
+Scanning dependencies of target kcontrol-dnssd-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-dnssd-en-handbook
+Scanning dependencies of target kcontrol-ebrowsing-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-ebrowsing-en-handbook
+Scanning dependencies of target kcontrol-energy-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-energy-en-handbook
+Scanning dependencies of target kcontrol-filemanager-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-filemanager-en-handbook
+Scanning dependencies of target kcontrol-filetypes-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-filetypes-en-handbook
+Scanning dependencies of target kcontrol-fonts-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-fonts-en-handbook
+Scanning dependencies of target kcontrol-hwmanager-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-hwmanager-en-handbook
+Scanning dependencies of target kcontrol-iccconfig-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-iccconfig-en-handbook
+Scanning dependencies of target kcontrol-icons-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-icons-en-handbook
+Scanning dependencies of target kcontrol-interrupts-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-interrupts-en-handbook
+Scanning dependencies of target kcontrol-ioports-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-ioports-en-handbook
+Scanning dependencies of target kcontrol-joystick-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-joystick-en-handbook
+Scanning dependencies of target kcontrol-kcmaccess-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-kcmaccess-en-handbook
+Scanning dependencies of target kcontrol-kcmcgi-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-kcmcgi-en-handbook
+Scanning dependencies of target kcontrol-kcmcss-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-kcmcss-en-handbook
+Scanning dependencies of target kcontrol-kcmfontinst-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-kcmfontinst-en-handbook
+Scanning dependencies of target kcontrol-kcmhistory-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-kcmhistory-en-handbook
+Scanning dependencies of target kcontrol-kcmkded-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-kcmkded-en-handbook
+Scanning dependencies of target kcontrol-kcmkonsole-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-kcmkonsole-en-handbook
+Scanning dependencies of target kcontrol-kcmlaunch-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-kcmlaunch-en-handbook
+Scanning dependencies of target kcontrol-kcmnotify-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-kcmnotify-en-handbook
+Scanning dependencies of target kcontrol-kcmsmserver-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-kcmsmserver-en-handbook
+Scanning dependencies of target kcontrol-kcmstyle-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-kcmstyle-en-handbook
+Scanning dependencies of target kcontrol-keyboard-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-keyboard-en-handbook
+Scanning dependencies of target kcontrol-keys-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-keys-en-handbook
+Scanning dependencies of target kcontrol-khotkeys-en-handbook
+[  3%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  3%] Built target kcontrol-khotkeys-en-handbook
+Scanning dependencies of target kcontrol-kthememanager-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-kthememanager-en-handbook
+Scanning dependencies of target kcontrol-language-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-language-en-handbook
+Scanning dependencies of target kcontrol-media-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-media-en-handbook
+Scanning dependencies of target kcontrol-memory-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-memory-en-handbook
+Scanning dependencies of target kcontrol-mouse-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-mouse-en-handbook
+Scanning dependencies of target kcontrol-netpref-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-netpref-en-handbook
+Scanning dependencies of target kcontrol-nics-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-nics-en-handbook
+Scanning dependencies of target kcontrol-opengl-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-opengl-en-handbook
+Scanning dependencies of target kcontrol-partitions-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-partitions-en-handbook
+Scanning dependencies of target kcontrol-paths-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-paths-en-handbook
+Scanning dependencies of target kcontrol-pci-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-pci-en-handbook
+Scanning dependencies of target kcontrol-pcmcia-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-pcmcia-en-handbook
+Scanning dependencies of target kcontrol-performance-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-performance-en-handbook
+Scanning dependencies of target kcontrol-privacy-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-privacy-en-handbook
+Scanning dependencies of target kcontrol-processor-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-processor-en-handbook
+Scanning dependencies of target kcontrol-proxy-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-proxy-en-handbook
+Scanning dependencies of target kcontrol-samba-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-samba-en-handbook
+Scanning dependencies of target kcontrol-screensaver-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-screensaver-en-handbook
+Scanning dependencies of target kcontrol-scsi-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-scsi-en-handbook
+Scanning dependencies of target kcontrol-smb-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-smb-en-handbook
+Scanning dependencies of target kcontrol-sound-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-sound-en-handbook
+Scanning dependencies of target kcontrol-spellchecking-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-spellchecking-en-handbook
+Scanning dependencies of target kcontrol-tdehtml-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-tdehtml-en-handbook
+Scanning dependencies of target tderandrtray-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target tderandrtray-en-handbook
+Scanning dependencies of target kcontrol-tderesources-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-tderesources-en-handbook
+Scanning dependencies of target kcontrol-twindecoration-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-twindecoration-en-handbook
+Scanning dependencies of target kcontrol-usb-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-usb-en-handbook
+Scanning dependencies of target kcontrol-useraccount-en-handbook
+[  4%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  4%] Built target kcontrol-useraccount-en-handbook
+Scanning dependencies of target kcontrol-useragent-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kcontrol-useragent-en-handbook
+Scanning dependencies of target kcontrol-view1394-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kcontrol-view1394-en-handbook
+Scanning dependencies of target kcontrol-windowbehavior-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kcontrol-windowbehavior-en-handbook
+Scanning dependencies of target kcontrol-windowmanagement-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kcontrol-windowmanagement-en-handbook
+Scanning dependencies of target kcontrol-xserver-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kcontrol-xserver-en-handbook
+Scanning dependencies of target kdcop-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kdcop-en-handbook
+Scanning dependencies of target keditbookmarks-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target keditbookmarks-en-handbook
+Scanning dependencies of target kfind-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kfind-en-handbook
+Scanning dependencies of target khelpcenter-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target khelpcenter-en-handbook
+Scanning dependencies of target kicker-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kicker-en-handbook
+Scanning dependencies of target kjobviewer-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kjobviewer-en-handbook
+Scanning dependencies of target klipper-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target klipper-en-handbook
+Scanning dependencies of target kmenuedit-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kmenuedit-en-handbook
+Scanning dependencies of target knetattach-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target knetattach-en-handbook
+Scanning dependencies of target kompmgr-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kompmgr-en-handbook
+Scanning dependencies of target konqueror-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target konqueror-en-handbook
+Scanning dependencies of target konsole-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target konsole-en-handbook
+Scanning dependencies of target kpager-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kpager-en-handbook
+Scanning dependencies of target ksplashml-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target ksplashml-en-handbook
+Scanning dependencies of target ksysguard-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target ksysguard-en-handbook
+Scanning dependencies of target kwrite-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kwrite-en-handbook
+Scanning dependencies of target kxkb-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target kxkb-en-handbook
+Scanning dependencies of target khelpcenter-quickstart-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target khelpcenter-quickstart-en-handbook
+Scanning dependencies of target khelpcenter-releasenotes-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target khelpcenter-releasenotes-en-handbook
+Scanning dependencies of target tdedebugdialog-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target tdedebugdialog-en-handbook
+Scanning dependencies of target tdefontview-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target tdefontview-en-handbook
+Scanning dependencies of target tdeioslave-about-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target tdeioslave-about-en-handbook
+Scanning dependencies of target tdeioslave-applications-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+trying to create local folder //.trinity: Permission denied
+[  5%] Built target tdeioslave-applications-en-handbook
+Scanning dependencies of target tdeioslave-ar-en-handbook
+[  5%] Generating index.cache.bz2
+trying to create local folder //.trinity: Permission denied
+make[2]: *** [doc/tdeioslave/ar/CMakeFiles/tdeioslave-ar-en-handbook.dir/build.make:61: doc/tdeioslave/ar/index.cache.bz2] Interrupt
+make[1]: *** [CMakeFiles/Makefile2:6845: doc/tdeioslave/ar/CMakeFiles/tdeioslave-ar-en-handbook.dir/all] Interrupt
+make: *** [Makefile:130: all] Interrupt
+
+[1m[31m==> ERROR:(B[m[1m Aborted by user! Exiting...(B[m

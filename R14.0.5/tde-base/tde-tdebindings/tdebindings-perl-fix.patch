@@ -1,0 +1,12 @@
+diff -Naur tdebindings-orig/smoke/tde/generate.pl.in tdebindings/smoke/tde/generate.pl.in
+--- tdebindings-orig/smoke/tde/generate.pl.in	2015-09-22 20:08:07.000000000 -0700
++++ tdebindings/smoke/tde/generate.pl.in	2017-06-29 02:04:15.958887867 -0700
+@@ -164,7 +164,7 @@
+ my @kdeheaders = ();
+ $kdeprefix = "@KDE_PREFIX@";
+ $kdeinc= '@kde_includes@';
+-$kdeinc =~ s/\${prefix}/$kdeprefix/; # Remove ${prefix} in src != build
++$kdeinc =~ s/\$\{prefix\}/$kdeprefix/; # Remove ${prefix} in src != build
+ -d $kdeinc or die "Couldn't process $kdeinc: $!\n";
+ 
+ find(

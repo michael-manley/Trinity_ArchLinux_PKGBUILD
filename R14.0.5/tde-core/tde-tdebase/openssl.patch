@@ -1,0 +1,62 @@
+diff -Naur tdebase-orig/kcontrol/crypto/CMakeLists.txt tdebase/kcontrol/crypto/CMakeLists.txt
+--- tdebase-orig/kcontrol/crypto/CMakeLists.txt	2015-09-22 20:07:43.000000000 -0700
++++ tdebase/kcontrol/crypto/CMakeLists.txt	2017-06-28 07:20:12.805920227 -0700
+@@ -14,9 +14,9 @@
+ option( WITH_SSL "Enable support for SSL" ON )
+ 
+ if( WITH_SSL )
+-  pkg_search_module( SSL openssl )
++  pkg_search_module( SSL openssl<=1.0.21 )
+   if( NOT SSL_FOUND )
+-    tde_message_fatal( "SSL support are requested, but openssl is not found on your system" )
++    tde_message_fatal( "SSL support are requested, but openssl<=1.0.21 is not found on your system" )
+   endif( NOT SSL_FOUND )
+   set( HAVE_SSL 1 CACHE INTERNAL "" FORCE )
+ endif( WITH_SSL )
+@@ -29,10 +29,12 @@
+   ${CMAKE_BINARY_DIR}
+   ${TDE_INCLUDE_DIR}
+   ${TQT_INCLUDE_DIRS}
++  ${SSL_INCLUDE_DIRS}
+ )
+ 
+ link_directories(
+   ${TQT_LIBRARY_DIRS}
++  ${SSL_LIBRARY_DIRS}
+ )
+ 
+ ##### other data ################################
+diff -Naur tdebase-orig/tdm/kfrontend/CMakeLists.txt tdebase/tdm/kfrontend/CMakeLists.txt
+--- tdebase-orig/tdm/kfrontend/CMakeLists.txt	2016-11-06 21:13:19.000000000 -0800
++++ tdebase/tdm/kfrontend/CMakeLists.txt	2017-06-28 08:12:27.155922266 -0700
+@@ -48,7 +48,8 @@
+ 
+ ##### tdm_config (executable) ###################
+ 
+-set_property( SOURCE tdm_config.c APPEND PROPERTY OBJECT_DEPENDS ${CMAKE_CURRENT_BINARY_DIR}/config.ci )
++set_property( SOURCE tdm_greet.c APPEND PROPERTY OBJECT_DEPENDS 
++${CMAKE_CURRENT_BINARY_DIR}/config.ci )
+ 
+ tde_add_executable( tdm_config
+   SOURCES tdm_config.c
+diff -Naur tdebase-orig/twin/client.cpp tdebase/twin/client.cpp
+--- tdebase-orig/twin/client.cpp	2015-09-22 20:07:45.000000000 -0700
++++ tdebase/twin/client.cpp	2017-06-28 09:04:03.365924288 -0700
+@@ -509,7 +509,7 @@
+     int format, result;
+     unsigned long n, left;
+     result = XGetWindowProperty(tqt_xdisplay(), window(), atoms->net_wm_system_modal_notification, 0L, 1L, False, XA_CARDINAL, &actual, &format, &n, &left, /*(unsigned char **)*/ &data);
+-    if (result == Success && data != None && format == 32 )
++    if (result == Success && data != 0 && format == 32 )
+         {
+         return TRUE;
+         }
+@@ -2975,7 +2975,7 @@
+     int format, result;
+     unsigned long n, left;
+     result = XGetWindowProperty(tqt_xdisplay(), window(), atoms->net_wm_window_opacity, 0L, 1L, False, XA_CARDINAL, &actual, &format, &n, &left, /*(unsigned char **)*/ &data);
+-    if (result == Success && data != None && format == 32 )
++    if (result == Success && data != 0 && format == 32 )
+         {
+         opacity_ = *reinterpret_cast< long* >( data );
+         custom_opacity = true;
