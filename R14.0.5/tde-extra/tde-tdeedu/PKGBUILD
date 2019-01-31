@@ -16,8 +16,10 @@ conflicts=("trinity-${pkgname#*-}")
 replaces=("trinity-${pkgname#*-}")
 options=('staticlibs' 'libtool' '!emptydirs')
 # install='pkgname.install'
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdeedu-R${pkgver}.tar.bz2")
-md5sums=('b6ceb82d93d19e3862dfb01c45457774')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdeedu-R${pkgver}.tar.bz2"
+        "kmplot.patch")
+md5sums=('b6ceb82d93d19e3862dfb01c45457774'
+         '3b00bf93b77d020d69d9d92ef80041d2')
 
 build() {
   cd ${srcdir}
@@ -29,6 +31,9 @@ build() {
 
   cd ${srcdir}/${pkgname#*-}
   ## Generate config files and update with autoreconf
+
+  msg "Patching for kmplot..."
+  patch -p1 -i ${srcdir}/kmplot.patch
 
   msg "Copying system libtool files...."
   cp /usr/share/aclocal/libtool.m4 ./admin/libtool.m4.in

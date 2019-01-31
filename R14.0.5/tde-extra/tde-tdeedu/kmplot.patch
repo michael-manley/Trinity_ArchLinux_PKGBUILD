@@ -1,0 +1,12 @@
+diff -Naur tdeedu-orig/kmplot/kmplot/Makefile.am tdeedu/kmplot/kmplot/Makefile.am
+--- tdeedu-orig/kmplot/kmplot/Makefile.am	2018-08-25 10:03:05.000000000 +0000
++++ tdeedu/kmplot/kmplot/Makefile.am	2019-01-31 21:39:42.000000000 +0000
+@@ -28,6 +28,8 @@
+ kmplot_LDFLAGS = $(KDE_RPATH) $(all_libraries) $(LIB_QT) $(LIB_TDECORE) $(LIB_TDEUI) $(LIB_TDEIO) $(LIB_TDEPARTS) -lDCOP
+ kmplot_LDADD   = $(LIB_TDEPARTS)
+ 
++kmplot_COMPILE_FIRST = FktDlgData.h qminmax.h settings.h
++
+ # this is where the desktop file will go
+ appmimedir = $(kde_mimedir)/application
+ appmime_DATA = x-kmplot.desktop

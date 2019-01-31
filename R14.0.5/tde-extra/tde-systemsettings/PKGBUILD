@@ -27,25 +27,23 @@ build() {
   ## Generate config files and update with autoreconf
   cd ${srcdir}/applications/${pkgname}
 
-  msg "Creating out-of-source build directory: ${srcdir}/build"
-  mkdir -p "$srcdir/build"
-  cd "$srcdir/build"
+  msg "Copying system libtool files...."
+  cp /usr/share/aclocal/libtool.m4 ./admin/libtool.m4.in
+  cp /usr/share/libtool/build-aux/ltmain.sh ./admin/ltmain.sh
 
-  msg "Starting cmake..."
+  msg "Running make -f admin/Makefile.common ...."
+  make -f admin/Makefile.common
 
-  cmake ${srcdir}/applications/${pkgname} \
-    -DCMAKE_INSTALL_PREFIX=${TDEDIR} \
-    -DSYSCONF_INSTALL_DIR=${TDEDIR}/etc \
-    -DBUILD_ALL=ON \
-    -DWITH_GCC_VISIBILITY=ON
+  ## configure
+  msg "Configuring - ${pkgname}..."
 
+  ./configure --prefix=/usr
   make $NUMJOBS
-
 }
 
 package() {
   msg "Packaging - $pkgname-$pkgver"
-  cd ${srcdir}/build            # use for libtool
-
+  cd ${srcdir}/applications/${pkgname}
+  
   make -j1 DESTDIR="${pkgdir}" install
 }

@@ -1,11 +1,7 @@
 #!/bin/bash
 
 ### !!! tdeartwork in tde-base removed due to no compile
-### !!! amarok in tde-extra removed due to no compile
 ### !!! gtk3-tqt-engine in tde-extra removed due to no compile
-### !!! kmplayer in tde-extra removed due to no compile
-### !!! systemsettings in tde-extra removed due to no compile
-### !!! tdeedu in tde-extra removed due to no compile
 
 set -e
 tdesrc=$PWD
@@ -33,7 +29,7 @@ done
 
 cd $tdesrc/tde-extra
 dir=$PWD
-for pkg in tdenetwork tdegames gtk-qt-engine tdemultimedia krusader ksplash-engine-moodin style-qtcurve tdeaccessibility tdepim tdeaddons tdenetworkmanager tdepowersave tdesudo tdetoys tdmtheme twin-style-crystal; do
+for pkg in tdenetwork tdegames gtk-qt-engine tdemultimedia systemsettings amarok kmplayer krusader tdeedu ksplash-engine-moodin style-qtcurve tdeaccessibility tdepim tdeaddons tdenetworkmanager tdepowersave tdesudo tdetoys tdmtheme twin-style-crystal; do
   cd "$dir"/tde-"$pkg"
   makepkg -Lsci
 done

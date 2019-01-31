@@ -15,8 +15,10 @@ makedepends=('pkgconfig' 'cmake' 'mplayer')
 #conflicts=('kmplayer')
 #replaces=('kmplayer')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/kmplayer-R${pkgver}.tar.bz2")
-md5sums=('968e2116b333ea646ce00fd2ab2038a8')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/kmplayer-R${pkgver}.tar.bz2"
+        "callback-stub-fix.patch")
+md5sums=('968e2116b333ea646ce00fd2ab2038a8'
+         '31ed0b0814a3855c65541c058ac91a68')
 # install=''
 
 build() {
@@ -27,6 +29,9 @@ build() {
 
   ## Generate config files and update with autoreconf
   cd ${srcdir}/applications/${pkgname#*-}
+
+  msg "Patching for callback stub header..."
+  patch -p1 -i ${srcdir}/callback-stub-fix.patch
 
   msg "Copying system libtool files...."
   cp /usr/share/aclocal/libtool.m4 ./admin/libtool.m4.in

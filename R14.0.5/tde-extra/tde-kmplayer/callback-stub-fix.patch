@@ -1,0 +1,35 @@
+diff -Naur kmplayer-orig/src/Makefile.am kmplayer/src/Makefile.am
+--- kmplayer-orig/src/Makefile.am	2018-08-25 10:16:53.000000000 +0000
++++ kmplayer/src/Makefile.am	2019-01-31 21:26:36.000000000 +0000
+@@ -27,6 +27,7 @@
+ kmplayer_la_SOURCES= main.cpp kmplayerapp.cpp kmplayertvsource.cpp kmplayerbroadcast.cpp kmplayervdr.cpp
+ kmplayer_la_LIBADD= libkmplayercommon.la $(LIB_XTEST)
+ kmplayer_la_LDFLAGS= -module $(KDE_PLUGIN) $(LIB_QT)
++kmplayer_la_COMPILE_FIRST= kmplayer_backend_stub.h
+ 
+ EXTRA_PROGRAMS = kxineplayer kxvplayer kgstplayer
+ if include_kxineplayer
+@@ -48,14 +49,17 @@
+ kxineplayer_CFLAGS= $(CFLAGS_XINE)
+ kxineplayer_LDFLAGS= $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+ kxineplayer_SOURCES= xineplayer.cpp
++kxineplayer_COMPILE_FIRST= kmplayer_callback_stub.h
+ 
+ kxvplayer_LDADD= libkmplayerbackend.la -lDCOP -lXv
+ kxvplayer_LDFLAGS= $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+ kxvplayer_SOURCES= xvplayer.cpp
++kxvplayer_COMPILE_FIRST= kmplayer_callback_stub.h
+ 
+ kgstplayer_LDADD= libkmplayerbackend.la $(LIB_GST) $(LIB_GST_PLUGINS) $(LIB_GST_OVERLAY) -lDCOP
+ kgstplayer_LDFLAGS= $(all_libraries) $(KDE_RPATH) $(LIB_QT) -lDCOP $(LIB_TDECORE) $(LIB_TDEUI) -ltdefx $(LIB_TDEIO) -ltdetexteditor
+ kgstplayer_SOURCES= gstplayer.cpp
++kgstplayer_COMPILE_FIRST= kmplayer_callback_stub.h
+ 
+ knpplayer_LDADD= $(LIBNSPR_LIBS)
+ knpplayer_LDFLAGS= -lX11 -lgmodule-2.0
+@@ -79,3 +83,5 @@
+ 
+ messages: rc.cpp
+ 	$(XGETTEXT) *.cpp -o $(podir)/kmplayer.pot
++
++.NOTPARALLEL:
