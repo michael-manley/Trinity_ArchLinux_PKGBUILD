@@ -66,14 +66,4 @@ package() {
   cd ${srcdir}/${pkgname#*-}            # use for non-out-of-source
 
   make -j1 DESTDIR="$pkgdir" install
-
-  # remove icons that conflict with tdelibs
-  msg "Removing kttsd.png icons that conflict with tdelibs..."
-  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/16x16/apps/kttsd.png
-  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/22x22/apps/kttsd.png
-  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/32x32/apps/kttsd.png
-  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/48x48/apps/kttsd.png
-  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/64x64/apps/kttsd.png
-  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/128x128/apps/kttsd.png
-  rm ${pkgdir}/opt/trinity/share/icons/crystalsvg/scalable/apps/kttsd.svgz
 }

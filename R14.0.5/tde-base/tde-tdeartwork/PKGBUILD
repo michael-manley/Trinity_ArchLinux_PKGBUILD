@@ -41,7 +41,7 @@ build() {
     -DBUILD_ALL=ON
 
   msg "Building - ${pkgname#*-}..."
-  make $NUMJOBS
+  make -j1
 }
 
 package() {

@@ -19,10 +19,6 @@ source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdenet
 md5sums=('a8bf7062f8955179955aa6a52e58112c')
 # install=''
 
-prepare() {
- patch -Np1 -i "${srcdir}/../kautoconfig.patch"
-}
-
 build() {
    msg "Setting PATH, CMAKE and Trinity Environment variables"
    # Source the QT and TDE profile

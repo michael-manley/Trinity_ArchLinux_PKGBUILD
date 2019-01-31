@@ -15,8 +15,10 @@ provides=('tdemultimedia')
 conflicts=('trinity-tdemultimedia' 'trinity-kdemultimedia')
 replaces=('trinity-tdemultimedia')
 options=('staticlibs' 'libtool' '!strip')
-source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdemultimedia-R${pkgver}.tar.bz2")
-md5sums=('35df868eecb8a7d794c156fe6e6e038c')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdemultimedia-R${pkgver}.tar.bz2"
+        "stat.patch")
+md5sums=('35df868eecb8a7d794c156fe6e6e038c'
+         '19a31ab61d45477149dd7ab6b85a17cd')
 # install=''
 
 build() {
@@ -31,6 +33,9 @@ build() {
   msg "Copying system libtool files...."
   cp /usr/share/aclocal/libtool.m4 ./admin/libtool.m4.in
   cp /usr/share/libtool/build-aux/ltmain.sh ./admin/ltmain.sh
+
+  msg "Patching to not use linux/stat.h"
+  patch -p1 -i ${srcdir}/stat.patch
 
   msg "Running make -f admin/Makefile.common ...."
   make -f admin/Makefile.common
