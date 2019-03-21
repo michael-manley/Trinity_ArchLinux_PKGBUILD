@@ -1,5 +1,5 @@
 # Trinity_ArchLinux_PKGBUILD
-PKGBUILD's for building Trinity on Arch Linux
+PKGBUILDs for building Trinity on Arch Linux
 
 ## Before installing
 Before installing please remove any presence of JRE and RUBY packages, 
