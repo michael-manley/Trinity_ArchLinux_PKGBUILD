@@ -1,0 +1,45 @@
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: e1z0 <marcinkeviciusjustinas at gmail dot com>
+
+pkgname=tde-tdegraphics
+pkgver=14.0.5
+pkgrel=1
+pkgdesc="Trinity Desktop Graphics Components"
+arch=('i686' 'x86_64')
+url='http://scm.trinitydesktop.org/scm/git/tdegraphics'
+license=('GPL')
+groups=('tde-base')
+depends=('tde-tdebase' 'libgphoto2' 'fribidi' 'sane')
+makedepends=('pkgconfig' 'cmake' 'imlib')
+provides=('tdegraphics')
+conflicts=('trinity-tdegraphics' 'trinity-kdegraphics')
+replaces=('trinity-tdegraphics')
+options=('staticlibs' 'libtool' '!strip')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdegraphics-R${pkgver}.tar.bz2")
+md5sums=('6edfbe368abb5530cacc9f610e385f55')
+# install=''
+
+build() {
+  cd $srcdir
+
+  msg "Creating out-of-source build directory: ${srcdir}/build"
+  mkdir -p build
+  cd build
+  msg "Starting cmake..."
+  cmake ${srcdir}/${pkgname#*-} \
+    -DCMAKE_VERBOSE_MAKEFILE=ON \
+    -DCMAKE_INSTALL_PREFIX=${TDEDIR} \
+    -DWITH_ARTS=ON \
+    -DCMAKE_VERBOSE_MAKEFILE=ON \
+    -DBUILD_ALL=ON
+
+  msg "Building - ${pkgname#*-}..."
+  make $NUMJOBS
+
+}
+
+package() {
+  msg "Packaging - $pkgname-$pkgver"
+  cd ${srcdir}/build
+  make -j1 DESTDIR="${pkgdir}" install
+}

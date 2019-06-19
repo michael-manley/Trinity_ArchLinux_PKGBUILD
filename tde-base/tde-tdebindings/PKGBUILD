@@ -1,0 +1,55 @@
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: Pawel 'l0ner' Soltys <pwslts@gmail.com>
+# Contributor: Calvin Morrison <mutantturkey@gmail.com>
+# Contributor: David C. Rankin <drankinatty at gmail dot com>
+
+pkgname=tde-tdebindings
+pkgver=14.0.5
+pkgrel=1
+arch=('i686' 'x86_64')
+url='http://scm.trinitydesktop.org/scm/git/tdebindings'
+license=('GPL')
+groups=('tde-base')
+pkgdesc="Trinity Desktop bindings"
+depends=('tde-tdebase')
+makedepends=('pkgconfig' 'cmake' 'python2')
+options=('staticlibs' 'libtool' '!strip')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdebindings-R${pkgver}.tar.bz2")
+md5sums=('6ec6d2f34dfd4d7652f62807fdc269ea')
+# install=''
+
+build() {
+  ## Generate config files and update with autoreconf
+  cd ${srcdir}/${pkgname#*-}
+
+  msg "Copying system libtool files...."
+  cp /usr/share/aclocal/libtool.m4 ./admin/libtool.m4.in
+  cp /usr/share/libtool/build-aux/ltmain.sh ./admin/ltmain.sh
+
+  msg "Running make -f admin/Makefile.common ...."
+  make -f admin/Makefile.common
+
+  ## configure
+  msg "Configuring - ${pkgname}..."
+  PYTHON=/usr/bin/python2 \
+  ./configure \
+    --prefix=${TDEDIR} \
+    --with-qt-dir=${QTDIR} \
+    --with-qt-includes=${QTDIR}/include \
+    --with-qt-libraries=${QTDIR}/lib \
+    --with-extra-includes="/usr/include/tqt:/usr/include/tqt/Qt" \
+    --with-extra-libs="${TDEDIR}/lib:${TDEDIR}/lib/trinity" \
+    --sysconfdir=${TDEDIR}/etc \
+    --localstatedir=/var \
+    --enable-closure
+
+  msg "Building - ${pkgname}..."
+  make $NUMJOBS
+}
+
+package() {
+  msg "Packaging - $pkgname-$pkgver"
+  cd ${srcdir}/${pkgname#*-}
+
+  make -j1 DESTDIR="${pkgdir}" install
+}

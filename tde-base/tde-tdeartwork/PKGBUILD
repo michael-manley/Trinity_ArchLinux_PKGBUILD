@@ -1,0 +1,46 @@
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: David C. Rankin <drankinatty at gmail dot com>
+
+pkgname=tde-tdeartwork
+pkgver=14.0.5
+pkgrel=1
+arch=('i686' 'x86_64')
+url='http://scm.trinitydesktop.org/scm/git/tdeartwork'
+license=('GPL')
+groups=('tde-base')
+pkgdesc="Trinity Desktop Development Ingegration Components - TDE upstream GIT"
+depends=('tde-tdebase' 'xscreensaver' 'libxss')
+makedepends=('pkgconfig' 'cmake')
+optdepends=()
+provides=('tdeartwork')
+conflicts=('trinity-tdeartwork' 'trinity-kdeartwork')
+replaces=('trinity-tdeartwork')
+options=('staticlibs' 'libtool' '!strip')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdeartwork-R${pkgver}.tar.bz2")
+md5sums=('292af8c2fa2ad695f1dd00cd1ecdc5f6')
+# install=''
+
+build() {
+  cd $srcdir
+
+  msg "Creating out-of-source build directory: ${srcdir}/build"
+  mkdir -p build
+  cd build
+
+  msg "Starting cmake..."
+  cmake ${srcdir}/${pkgname#*-} \
+    -DCMAKE_VERBOSE_MAKEFILE=ON \
+    -DCMAKE_INSTALL_PREFIX=${TDEDIR} \
+    -DWITH_ARTS=ON \
+    -DCMAKE_VERBOSE_MAKEFILE=ON \
+    -DBUILD_ALL=ON
+
+  msg "Building - ${pkgname#*-}..."
+  make -j1
+}
+
+package() {
+  msg "Packaging - $pkgname-$pkgver"
+  cd ${srcdir}/build
+  make -j1 DESTDIR="${pkgdir}" install
+}

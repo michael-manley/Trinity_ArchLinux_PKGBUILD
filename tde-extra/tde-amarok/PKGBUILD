@@ -1,0 +1,40 @@
+# Contributor: e1z0 <justinas at eofnet dot lt>
+
+pkgname=tde-amarok
+pkgver=14.0.5
+pkgrel=1
+pkgdesc="TDE Amarok"
+arch=('i686' 'x86_64')
+url='http://scm.trinitydesktop.org/scm/git/applications/amarok'
+license=('GPL')
+groups=('tde-extra')
+depends=('tde-tdebase' 'taglib')
+makedepends=('pkgconfig' 'cmake')
+#provides=('tde-amarok')
+#conflicts=('tde-amarok')
+#replaces=('tde-amarok')
+options=('staticlibs' 'libtool' '!strip')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/amarok-R${pkgver}.tar.bz2")
+md5sums=('0351b0d4ee54ae266e2a3ec47cd3accf')
+# install=''
+
+build() {
+  ## Generate config files and update with autoreconf
+  cd ${srcdir}/applications/${pkgname#*-}
+
+  msg "Running make -f admin/Makefile.common ...."
+  make -f admin/Makefile.common
+
+  ## configure
+  msg "Configuring - ${pkgname}..."
+
+  ./configure --prefix=${TDEDIR}
+  make $NUMJOBS
+}
+
+package() {
+  msg "Packaging - $pkgname-$pkgver"
+  cd ${srcdir}/applications/${pkgname#*-}
+  
+  make -j1 DESTDIR="${pkgdir}" install
+}

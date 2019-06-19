@@ -1,0 +1,105 @@
+diff -Naur libkexiv2.orig/libkexiv2/libkexiv2/kexiv2.cpp libkexiv2/libkexiv2/libkexiv2/kexiv2.cpp
+--- libkexiv2.orig/libkexiv2/libkexiv2/kexiv2.cpp	2015-09-23 05:34:27.000000000 +0000
++++ libkexiv2/libkexiv2/libkexiv2/kexiv2.cpp	2019-06-19 03:34:15.000000000 +0000
+@@ -180,7 +180,7 @@
+ 
+             Exiv2::ExifData& exif = d->exifMetadata;
+ 
+-#if (EXIV2_TEST_VERSION(0,17,91))
++#if !(EXIV2_TEST_VERSION(0,18,0))
+             Exiv2::Blob blob;
+             Exiv2::ExifParser::encode(blob, Exiv2::bigEndian, exif);
+             TQByteArray ba(blob.size());
+@@ -227,7 +227,7 @@
+             }
+             else
+             {
+-#if (EXIV2_TEST_VERSION(0,17,91))
++#if !(EXIV2_TEST_VERSION(0,18,0))
+                 c2 = Exiv2::IptcParser::encode(d->iptcMetadata);
+ #else
+                 c2 = iptc.copy();
+@@ -263,7 +263,7 @@
+     {
+         if (!data.isEmpty())
+         {
+-#if (EXIV2_TEST_VERSION(0,17,91))
++#if !(EXIV2_TEST_VERSION(0,18,0))
+             Exiv2::ExifParser::decode(d->exifMetadata, (const Exiv2::byte*)data.data(), data.size());
+             return (!d->exifMetadata.empty());
+ #else
+@@ -291,7 +291,7 @@
+     {
+         if (!data.isEmpty())
+         {
+-#if (EXIV2_TEST_VERSION(0,17,91))
++#if !(EXIV2_TEST_VERSION(0,18,0))
+             Exiv2::IptcParser::decode(d->iptcMetadata, (const Exiv2::byte*)data.data(), data.size());
+             return (!d->iptcMetadata.empty());
+ #else
+@@ -715,7 +715,7 @@
+ 
+     try
+     {
+-#if (EXIV2_TEST_VERSION(0,17,91))
++#if !(EXIV2_TEST_VERSION(0,18,0))
+         Exiv2::ExifThumbC thumb(d->exifMetadata);
+         Exiv2::DataBuf const c1 = thumb.copy();
+ #else
+@@ -795,7 +795,7 @@
+ 
+     try
+     {
+-#if (EXIV2_TEST_VERSION(0,17,91))
++#if !(EXIV2_TEST_VERSION(0,18,0))
+         TQByteArray data;
+         TQBuffer buffer(data);
+         buffer.open(IO_WriteOnly);
+@@ -1401,7 +1401,7 @@
+             TQByteArray data((*it).size());
+             if (data.size())
+             {
+-#if (EXIV2_TEST_VERSION(0,17,91))
++#if !(EXIV2_TEST_VERSION(0,18,0))
+                 (*it).copy((Exiv2::byte*)data.data(), Exiv2::bigEndian);
+ #else
+                 (*it).copy((Exiv2::byte*)data.data(), exifData.byteOrder());
+@@ -1603,7 +1603,7 @@
+     {
+         std::string exifkey(exifTagName);
+         Exiv2::ExifKey ek(exifkey);
+-#if EXIV2_TEST_VERSION(0, 21, 0)
++#if !EXIV2_TEST_VERSION(0, 18, 0)
+         return TQString::fromLocal8Bit( ek.tagLabel().c_str() );
+ #else
+         return TQString::fromLocal8Bit( Exiv2::ExifTags::tagTitle(ek.tag(), ek.ifdId()) );
+@@ -1623,7 +1623,7 @@
+     {
+         std::string exifkey(exifTagName);
+         Exiv2::ExifKey ek(exifkey);
+-#if EXIV2_TEST_VERSION(0, 21, 0)
++#if !EXIV2_TEST_VERSION(0, 18, 0)
+         return TQString::fromLocal8Bit( ek.tagDesc().c_str() );
+ #else
+         return TQString::fromLocal8Bit( Exiv2::ExifTags::tagDesc(ek.tag(), ek.ifdId()) );
+diff -Naur libkexiv2.orig/libkexiv2/libkexiv2/kexiv2private.cpp libkexiv2/libkexiv2/libkexiv2/kexiv2private.cpp
+--- libkexiv2.orig/libkexiv2/libkexiv2/kexiv2private.cpp	2015-09-23 05:34:27.000000000 +0000
++++ libkexiv2/libkexiv2/libkexiv2/kexiv2private.cpp	2019-06-19 03:34:03.000000000 +0000
+@@ -51,7 +51,7 @@
+     {
+         if (data.size_ != 0)
+         {
+-#if (EXIV2_TEST_VERSION(0,17,91))
++#if !(EXIV2_TEST_VERSION(0,18,0))
+             Exiv2::ExifParser::decode(exifMetadata, data.pData_, data.size_);
+             return (!exifMetadata.empty());
+ #else
+@@ -79,7 +79,7 @@
+     {
+         if (data.size_ != 0)
+         {
+-#if (EXIV2_TEST_VERSION(0,17,91))
++#if !(EXIV2_TEST_VERSION(0,18,0))
+             Exiv2::IptcParser::decode(iptcMetadata, data.pData_, data.size_);
+             return (!iptcMetadata.empty());
+ #else

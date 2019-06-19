@@ -1,0 +1,46 @@
+# Maintainer: Michael Manley <mmanley@nasutek.com>
+# Contributor: David C. Rankin <drankinatty at gmail dot com>
+
+pkgname=tde-tdepim
+pkgver=14.0.5
+pkgrel=1
+pkgdesc="Trinity Desktop PIM Components"
+arch=('i686' 'x86_64')
+url='http://scm.trinitydesktop.org/scm/git/tdepim'
+license=('GPL')
+groups=('tde-extra')
+depends=('tde-tdenetwork' 'boost' 'boost-libs' 'gnokii' 'libxss' 'xscreensaver' 'tde-libcaldav' 'tde-libcarddav')
+makedepends=('pkgconfig' 'cmake' )
+provides=('tdepim')
+replaces=('trinity-tdepim')
+options=('staticlibs' 'libtool' '!strip')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/tdepim-R${pkgver}.tar.bz2")
+md5sums=('0dfd3561ff0ffc440fc9ead221021333')
+
+build() {
+  cd $srcdir
+
+  msg "Creating out-of-source build directory: ${srcdir}/build"
+  mkdir -p build
+  cd build
+
+  msg "Starting cmake..."
+  cmake ${srcdir}/${pkgname#*-} \
+    -DCMAKE_C_FLAGS="-fpermissive" \
+    -DCMAKE_CXX_FLAGS="-fpermissive" \
+    -DCMAKE_VERBOSE_MAKEFILE=ON \
+    -DCMAKE_INSTALL_PREFIX=$TDEDIR \
+    -DWITH_ALL_OPTIONS=ON \
+    -DBUILD_ALL=ON
+
+  msg "Building - ${pkgname#*-}..."
+  make $NUMJOBS
+}
+
+package() {
+  msg "Packaging - $pkgname-$pkgver"
+  cd ${srcdir}/build
+  make -j1 DESTDIR="${pkgdir}" install
+  # Removing /opt/trinity/share/icons/default.tde to prevent a conflict
+  rm -rf ${pkgdir}/opt/trinity/share/icons/default.tde
+}

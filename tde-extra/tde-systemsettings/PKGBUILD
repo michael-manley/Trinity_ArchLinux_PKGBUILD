@@ -1,0 +1,49 @@
+# Contributor: e1z0 <justinas at eofnet dot lt>
+
+pkgname=tde-systemsettings
+pkgver=14.0.5
+pkgrel=1
+pkgdesc="TDE System Settings"
+arch=('i686' 'x86_64')
+url='http://scm.trinitydesktop.org/scm/git/applications/tde-systemsettings'
+license=('GPL')
+groups=('tde-extra')
+depends=('tde-tdebase')
+makedepends=('pkgconfig' 'cmake')
+#provides=('tde-systemsettings')
+#conflicts=('tde-systemsettings')
+#replaces=('tde-systemsettings')
+options=('staticlibs' 'libtool' '!strip')
+source=("http://mirror.ppa.trinitydesktop.org/trinity/releases/R${pkgver}/applications/tde-systemsettings-R${pkgver}.tar.bz2")
+md5sums=('2a59f87b39bd63b8ae30eca38763a3ec')
+# install=''
+
+build() {
+  ## Generate config files and update with autoreconf
+  cd ${srcdir}/applications/${pkgname}
+
+  msg "Copying system libtool files...."
+  cp /usr/share/aclocal/libtool.m4 ./admin/libtool.m4.in
+  cp /usr/share/libtool/build-aux/ltmain.sh ./admin/ltmain.sh
+
+  msg "Running make -f admin/Makefile.common ...."
+  make -f admin/Makefile.common
+
+  ## configure
+  msg "Configuring - ${pkgname}..."
+
+  ./configure --prefix=${TDEDIR}
+  make $NUMJOBS
+}
+
+package() {
+  msg "Packaging - $pkgname-$pkgver"
+  cd ${srcdir}/applications/${pkgname}
+  
+  make -j1 DESTDIR="${pkgdir}" install
+
+  rm -rf ${pkgdir}/opt/trinity/share/applications/tde/kcmfontinst.desktop
+  rm -rf ${pkgdir}/opt/trinity/share/applications/tde/laptop.desktop
+  rm -rf ${pkgdir}/opt/trinity/share/desktop-directories/tde-settings-power.directory
+  rm -rf ${pkgdir}/opt/trinity/share/desktop-directories/tde-settings-system.directory
+}

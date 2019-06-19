@@ -1,0 +1,29 @@
+export TDEDIR=/opt/trinity
+export QTDIR=$TDEDIR/tqt3
+export TQTDIR=$QTDIR
+#export SYSCONFDIR=/etc/trinity
+#export LIBDIR=$TDEDIR/lib
+#export MANDIR=$TDEDIR/man
+export QT_XFT=true
+export PATH=$PATH:$TQTDIR/bin:$TDEDIR/bin
+
+if [ ! -z $PKG_CONFIG_PATH ]; then 
+  export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$TDEDIR/lib/pkgconfig:$TQTDIR/lib/pkgconfig
+else 
+  export PKG_CONFIG_PATH=$TDEDIR/share 
+fi 
+if [ ! -z $XDG_DATA_DIRS ]; then 
+  export XDG_DATA_DIRS=$XDG_DATA_DIRS:$TDEDIR/share 
+else 
+  export XDG_DATA_DIRS=$TDEDIR/share 
+fi 
+if [ ! -z $XDG_CONFIG_DIRS ]; then 
+  export XDG_CONFIG_DIRS=$XDG_CONFIG_DIRS:$TDEDIR/etc/xdg 
+else 
+  export XDG_CONFIG_DIRS=$TDEDIR/etc/xdg 
+fi
+if [ ! -z $PKG_CONFIG_PATH ]; then 
+  export PKG_CONFIG_PATH=$PKG_CONFIG_PATH:$TDEDIR/lib/pkgconfig:$TQTDIR/lib/pkgconfig
+else 
+  export PKG_CONFIG_PATH=$TDEDIR/share 
+fi 
