@@ -1,3 +1,6 @@
+NOTE: We are currently in the process of moving this repository over to Trinity upstream and get it to the point of having 
+Arch Linux being an officially supported distro. See Issue #53 for more information.
+
 # Trinity_ArchLinux_PKGBUILD
 PKGBUILD's for building Trinity on Arch Linux
 
