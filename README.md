@@ -1,5 +1,5 @@
-NOTE: We are currently in the process of moving this repository over to Trinity upstream and get it to the point of having 
-Arch Linux being an officially supported distro. See Issue [#53](https://github.com/michael-manley/Trinity_ArchLinux_PKGBUILD/issues/53) for more information.
+As of 9/29/2021, this repo is now merged over to Trinity @ https://mirror.git.trinitydesktop.org/gitea/TDE/tde-packaging/src/branch/master/arch
+This repo will now be archived and further development will occur there.
 
 # Trinity_ArchLinux_PKGBUILD
 PKGBUILD's for building Trinity on Arch Linux
